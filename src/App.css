@@ -116,3 +116,22 @@ body{
   bottom: 0;
   left: 40%;
 }
+
+.subTitle{
+  margin-top: 7rem;
+  color: #eee5e0;
+  font-family: 'Bebas Neue';
+  font-size: 5rem;
+}
+
+.subContainer{
+  height: 100vh;
+}
+
+.workContainer{
+  height: 300px;
+  width: 500px;
+  border: 1px solid #eee5e0;
+  margin-right: 2rem;
+}
+

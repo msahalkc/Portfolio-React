@@ -5,6 +5,7 @@ import Navbar from './components/Navbar'
 import MainText from "./components/MainText";
 import SubTexts from './components/SubTexts'
 import RoundedRectangle from "./components/RoundedRectangle";
+import Works from './components/Works'
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <SubTexts />
       </div>
       <RoundedRectangle />
+      <Works />
     </div>
   )
 }

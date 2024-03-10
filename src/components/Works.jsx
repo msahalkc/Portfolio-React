@@ -5,7 +5,7 @@ import Todo from '../assets/todo website.png'
 
 const Works = () => {
   return (
-    <div className="container subContainer mt-5" id='works'>
+    <div className="container-md  subContainer mt-5" id='works'>
         <div className="worksTitle subTitle">
             My Works
         </div>

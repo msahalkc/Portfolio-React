@@ -548,7 +548,6 @@ textarea {
     grid-template-columns: 1fr;
     gap: 2rem;
     width: 350px;
-    margin: auto;
     justify-content: center;
   }
 
@@ -558,7 +557,7 @@ textarea {
 
   .viewPortfolio{
     width: 350px;
-    margin: auto;
+    margin: auto 0;
   }
 
   .behance{
@@ -604,5 +603,10 @@ textarea {
 
   .brandName{
     margin-left: 0 !important;
+  }
+
+  #about{
+    display: grid;
+    justify-content: center;
   }
 }

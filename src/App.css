@@ -29,6 +29,7 @@ body{
   color: #eee5e0;
   transition: 0.5s;
 }
+
 .navcas a {
   color: #eee5e0;
   position: relative;
@@ -56,6 +57,11 @@ body{
 .navcas a:hover::before {
   visibility: visible;
   transform: scaleX(1);
+}
+
+.navbar .container-fluid a::before{
+  visibility: hidden;
+  transform: scaleX(0);
 }
 
 .app-container {

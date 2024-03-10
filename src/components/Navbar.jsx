@@ -21,13 +21,13 @@ const Navbar = () => {
   return (
     <nav className="navbar navbar-expand-lg px-5 pt-4 navcas">
       <div className="container-fluid">
-        <div className='d-flex'>
+        <a className='d-flex' href='#'>
           <img src={Logo} width="60px" alt="KC Designs Logo" />
           <div className="brandName mx-3">
             muhammed <br />
             sahal kc
           </div>
-        </div>
+        </a>
         <button className="navbar-toggler px-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" onClick={toggleNavbarColor}>
           <i className="fa-solid fa-bars" style={{ color: "#eee5e6" }}></i>
         </button>

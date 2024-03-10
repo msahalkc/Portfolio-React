@@ -522,7 +522,7 @@ textarea {
 
   .rounded-rectangle, .rounded-rectangle::before{
     width: 100% !important;
-    height: 300px !important;
+    height: 200px !important;
     border-radius: 0;
   }
 

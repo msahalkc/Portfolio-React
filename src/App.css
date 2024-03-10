@@ -23,7 +23,7 @@ body{
   width: 100%;
   background-color: transparent;
   position: fixed;
-
+  z-index: 10;
   color: #f6d59d;
   transition: 0.5s;
 }
@@ -496,6 +496,9 @@ textarea {
 @media only screen and (max-width: 480px) {
   .titleText{
     font-size: 2rem;
+    line-height: 2rem;
+    margin-top: 7rem;
+    margin-bottom: 2rem;
   }
 
   .subContainer{

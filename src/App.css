@@ -549,6 +549,7 @@ textarea {
     gap: 2rem;
     width: 350px;
     margin: auto;
+    justify-content: center;
   }
 
   .skillCard{

@@ -15,7 +15,7 @@ function App() {
       <Navbar />
       <div className="app-container">
         <div className="subContainer">
-          <div className="textContainer mx-5">
+          <div className="textContainer mx-sm-5 mx-4">
             <MainText />
             <SubTexts />
           </div>

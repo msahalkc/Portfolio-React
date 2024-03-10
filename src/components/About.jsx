@@ -4,7 +4,7 @@ const About = () => {
   return (
     <div className="container subContainer mt-5" id='about'>
       <div className="contactTitle subTitle">
-        Skills and Languages
+        ABOUT ME
       </div>
       <div className="skillsAndLanguages">
         <div className="skillCard">

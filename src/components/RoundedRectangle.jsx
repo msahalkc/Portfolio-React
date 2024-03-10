@@ -1,5 +1,5 @@
 import React from 'react';
-import image from '../assets/photo.png';
+import image from '../assets/photo.webp';
 import FixMyInternet from '../assets/fix my internet.png'
 import GiveMeABreak from '../assets/give me a break.png'
 import FeatureBug from '../assets/feature bug.webp'

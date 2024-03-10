@@ -33,7 +33,16 @@ const Navbar = () => {
   // Function to toggle navbar color
   const toggleNavbarColor = () => {
     const navbar = document.querySelector('.navcas');
-    navbar.style.backgroundColor = (navbar.style.backgroundColor === 'transparent') ? '#ec3d64' : 'transparent';
+    const currentColor = window.getComputedStyle(navbar).getPropertyValue('background-color');
+
+    // Check if the current color matches the dark color
+    if (currentColor === 'rgb(10, 10, 10)') {
+      // Change to light color
+      navbar.style.backgroundColor = '#ec3d64';
+    } else {
+      // Change to dark color
+      navbar.style.backgroundColor = '#0a0a0a';
+    }
   };
 
   return (

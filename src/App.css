@@ -443,8 +443,8 @@ textarea {
 
 @media (max-width: 500px) and (max-height: 1000px) and (orientation: portrait){
   .titleText{
-    font-size: 2rem;
-    line-height: 2rem;
+    font-size: 2.5rem;
+    line-height: 2.5rem;
     margin-top: 7rem;
     margin-bottom: 2rem;
   }
@@ -484,8 +484,8 @@ textarea {
   .workTiles{
     grid-template-columns: 1fr;
     justify-content: center;
-    width: 350px;
-    margin: auto
+    width: 300px;
+    margin: auto;
   }
 
   .workContainer{
@@ -504,16 +504,16 @@ textarea {
   .skillsAndLanguages{
     grid-template-columns: 1fr;
     gap: 2rem;
-    width: 350px;
+    width: 300px;
     justify-content: center;
   }
 
   .skillCard{
-    width: 350px;
+    width: 300px;
   }
 
   .viewPortfolio{
-    width: 350px;
+    width: 300px;
     margin: auto 0;
   }
 
@@ -547,6 +547,14 @@ textarea {
     margin-top: 10px !important;
     display: flex;
     justify-content: center;
+  }
+
+  .icon{
+    transform: scale(0.8);
+  }
+
+  .icon-container .text{
+    font-size: 0.8rem;
   }
 
   .contactDetails{

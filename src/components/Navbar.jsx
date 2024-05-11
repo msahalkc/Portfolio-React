@@ -10,7 +10,7 @@ import {
 } from "@nextui-org/react";
 import { useState } from "react";
 import Logo from "../assets/kc designs white logo.svg";
-import ThemeSwitch from "./ThemeSwitch";
+// import ThemeSwitch from "./ThemeSwitch";
 
 const CustomNavbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -21,7 +21,7 @@ const CustomNavbar = () => {
       position="sticky"
       maxWidth="full"
     >
-      <NavbarContent className="" justify="start">
+      <NavbarContent className="gap-2" justify="start">
         <img src={Logo} width="60px" alt="KC Designs Logo" />
         <NavbarBrand className="flex flex-col items-start font-[Kanit] text-lg">
           <p className="font-normal">muhammed</p>

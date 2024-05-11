@@ -1,14 +1,41 @@
+import { motion, useAnimation, useScroll } from 'framer-motion';
 import { Input, Textarea, Button } from "@nextui-org/react";
+import { useEffect } from "react";
 
 const Contact = () => {
+  const controls = useAnimation();
+  const { scrollY } = useScroll();
+
+  useEffect(() => {
+    const updateOpacity = () => {
+      const section = document.getElementById('Contact');
+      if (section) {
+        const rect = section.getBoundingClientRect();
+        const triggerOffset = window.innerHeight * 0.6; // Adjust this value as needed
+        if (rect.top < triggerOffset) {
+          controls.start({
+            opacity: 1,
+            y: 0,
+            transition: { duration: 1, ease: 'easeOut' }
+          });
+        }
+      }
+    };
+
+    updateOpacity();
+
+    return scrollY.onChange(updateOpacity);
+  }, [controls, scrollY]);
+
   return (
-    <div
-      className="md:min-h-screen p-10 md:px-48 pt-28 flex flex-col"
-      id="Contact"
-    >
+    <div className="md:min-h-screen p-10 md:px-48 pt-28 flex flex-col" id="Contact">
       <div className="text-6xl Bebas">Contact Me</div>
       <div className="flex-1 flex flex-col md:flex-row">
-        <div className="md:w-[50%] flex flex-col justify-center mt-10 md:mt-0">
+        <motion.div
+          className="md:w-[50%] flex flex-col justify-center mt-10 md:mt-0"
+          initial={{ opacity: 0, y: 20 }}
+          animate={controls}
+        >
           <span className="text-3xl md:text-6xl">
             I&apos;ve been <br />
           </span>
@@ -47,8 +74,12 @@ const Contact = () => {
               </div>
             </div>
           </div>
-        </div>
-        <form className="md:w-[50%] flex flex-col justify-center gap-5 mt-10 md:mt-0">
+        </motion.div>
+        <motion.form
+          className="md:w-[50%] flex flex-col justify-center gap-5 mt-10 md:mt-0"
+          initial={{ opacity: 0, y: 20 }}
+          animate={controls}
+        >
           <div className="text-2xl">
             <b>Send me a Message</b>
           </div>
@@ -96,7 +127,7 @@ const Contact = () => {
               Submit
             </Button>
           </div>
-        </form>
+        </motion.form>
       </div>
     </div>
   );

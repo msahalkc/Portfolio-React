@@ -1,5 +1,6 @@
-import image from '../assets/photo.webp';
+import { motion } from 'framer-motion';
 import { useState, useLayoutEffect } from "react";
+import kc from "../assets/photo.webp"
 
 const RoundedRectangle = () => {
   const [isMobile, setIsMobile] = useState(false);
@@ -12,10 +13,17 @@ const RoundedRectangle = () => {
     updateSize();
     return () => window.removeEventListener('resize', updateSize);
   }, []);
+
   return (
-    <div className={`md:mt-48 mt-14 md:rounded-tr-full md:rounded-br-full bg-[#eee5e0] border shadow-md md:flex-1 md:w-[90vw] ${isMobile ? 'rounded-rectangle-mobile' : 'rounded-rectangle'} md:relative h-[30vh]`} style={{
-      border: '1px solid #0a0a0a', /* Border color and width */
-    }}>
+    <motion.div
+      initial={{ x: -100 }} // Initial position outside the viewport from the left
+      animate={{ x: 0 }} // Animation to bring the component to its final position
+      transition={{ duration: 1 }} // Transition duration
+      className={`md:mt-48 mt-14 md:rounded-tr-full md:rounded-br-full bg-[#eee5e0] border shadow-md md:flex-1 md:w-[90vw] ${isMobile ? 'rounded-rectangle-mobile' : 'rounded-rectangle'} md:relative h-[29vh]`}
+      style={{
+        border: '1px solid #0a0a0a', /* Border color and width */
+      }}
+    >
       <style>
         {`
           .rounded-rectangle::before {
@@ -37,8 +45,10 @@ const RoundedRectangle = () => {
           }
         `}
       </style>
-      <img src={image} width="270px" alt="" className="absolute bottom-[-7px] md:bottom-0 left-[25%] md:left-[45%] md:right-[45%] object-cover w-[50%] md:w-[270px]" />
-    </div>
+      <img
+        src={kc} width="270px" alt="" className="absolute bottom-0 left-[25%] md:left-[45%] md:right-[45%] object-cover w-[50%] md:w-[270px]"
+      />
+    </motion.div>
   );
 };
 

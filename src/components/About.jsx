@@ -76,6 +76,7 @@ const About = () => {
             loading="lazy"
             allow="clipboard-write"
             className="md:w-[30%] h-[300px] overflow-hidden"
+            height={'300px'}
           ></iframe>
           <iframe
             src="https://www.behance.net/embed/project/164400157?ilo0=1"
@@ -83,6 +84,7 @@ const About = () => {
             loading="lazy"
             allow="clipboard-write"
             className="md:w-[30%] h-[300px] overflow-hidden"
+            height={'300px'}
           ></iframe>
           <iframe
             src="https://www.behance.net/embed/project/164402641?ilo0=1"
@@ -90,6 +92,7 @@ const About = () => {
             loading="lazy"
             allow="clipboard-write"
             className="md:w-[30%] h-[300px] overflow-hidden"
+            height={'300px'}
           ></iframe>
         </div>
       </div>

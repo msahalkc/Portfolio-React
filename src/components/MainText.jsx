@@ -1,11 +1,11 @@
-import React from 'react';
-
 const MainText = () => {
   return (
-    <div className="titleText d-flex justify-content-center align-items-center text-center">
-      {'{'}Front End Developer{'}'}
+    <div className="text-center text-4xl md:text-9xl text-[#eee5e0] Bebas">
+      <h1>
+        {"{"}Front End Developer{"}"}
+      </h1>
     </div>
   );
-}
+};
 
 export default MainText;

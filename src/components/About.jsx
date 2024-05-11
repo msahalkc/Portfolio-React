@@ -75,21 +75,21 @@ const About = () => {
             allowFullScreen
             loading="lazy"
             allow="clipboard-write"
-            className="md:w-[30%] h-[300px]"
+            className="md:w-[30%] h-[300px] overflow-hidden"
           ></iframe>
           <iframe
             src="https://www.behance.net/embed/project/164400157?ilo0=1"
             allowFullScreen
             loading="lazy"
             allow="clipboard-write"
-            className="md:w-[30%] h-[300px]"
+            className="md:w-[30%] h-[300px] overflow-hidden"
           ></iframe>
           <iframe
             src="https://www.behance.net/embed/project/164402641?ilo0=1"
             allowFullScreen
             loading="lazy"
             allow="clipboard-write"
-            className="md:w-[30%] h-[300px]"
+            className="md:w-[30%] h-[300px] overflow-hidden"
           ></iframe>
         </div>
       </div>

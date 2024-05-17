@@ -26,17 +26,14 @@ const About = () => {
   const sections = [
     {
       title: "Front End Development",
-      color: "#f3d306",
       description: "In Front End Development, I specialize in creating engaging and responsive web interfaces using React, HTML, CSS, JavaScript, and Bootstrap. With these technologies, I ensure that websites are not only visually appealing but also functional and user-friendly, enhancing the overall user experience."
     },
     {
       title: "UI/UX Design",
-      color: "#ec3d64",
       description: "My expertise in UI/UX Design revolves around crafting intuitive user experiences and visually appealing designs. I proficiently use Figma and Adobe XD to translate ideas into prototypes and wireframes, refining user flows and visual aesthetics to create seamless and captivating designs."
     },
     {
       title: "Graphic Designing",
-      color: "#a4db73",
       description: "In Graphic Design, I leverage Adobe Illustrator, Photoshop, InDesign, and Canva to create impactful visuals for both digital and print media. Whether it's designing vector graphics, manipulating images, or laying out print materials, I bring creativity and technical proficiency to deliver polished and professional results that resonate with audiences."
     }
   ];
@@ -61,7 +58,7 @@ const About = () => {
           >
             <Card shadow='none' className={`border-1 border-[#eee5e0] p-3 rounded-none bg-transparent text-[#eee5e0]`}>
               <CardBody>
-                <h5 className={`Bebas text-3xl bg-[${section.color}] !text-[#0a0a0a] w-fit px-2 font-[Kanit]`}>
+                <h5 className={`Bebas text-3xl bg-[#a4db73] !text-[#0a0a0a] w-fit px-2 font-[Kanit]`}>
                   {section.title}
                 </h5>
               </CardBody>

@@ -19,7 +19,7 @@ const RoundedRectangle = () => {
       initial={{ x: -100 }} // Initial position outside the viewport from the left
       animate={{ x: 0 }} // Animation to bring the component to its final position
       transition={{ duration: 1 }} // Transition duration
-      className={`md:mt-48 mt-14 md:rounded-tr-full md:rounded-br-full bg-[#eee5e0] border shadow-md md:flex-1 md:w-[90vw] ${isMobile ? 'rounded-rectangle-mobile' : 'rounded-rectangle'} md:relative h-[29vh]`}
+      className={`md:mt-48 mt-14 md:rounded-tr-full md:rounded-br-full bg-[#eee5e0] border shadow-md md:flex-1 md:w-[90vw] ${isMobile ? 'rounded-rectangle-mobile' : 'rounded-rectangle'} relative h-[29vh]`}
       style={{
         border: '1px solid #0a0a0a', /* Border color and width */
       }}

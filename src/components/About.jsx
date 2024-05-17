@@ -61,7 +61,7 @@ const About = () => {
           >
             <Card shadow='none' className={`border-1 border-[#eee5e0] p-3 rounded-none bg-transparent text-[#eee5e0]`}>
               <CardBody>
-                <h5 className={`Bebas text-3xl !bg-[${section.color}] !text-[#0a0a0a] w-fit px-2 font-[Kanit]`}>
+                <h5 className={`Bebas text-3xl bg-[${section.color}] !text-[#0a0a0a] w-fit px-2 font-[Kanit]`}>
                   {section.title}
                 </h5>
               </CardBody>

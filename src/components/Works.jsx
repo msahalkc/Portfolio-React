@@ -1,45 +1,110 @@
-import React from 'react'
-import LaBelle from '../assets/labelle website.png'
-import Kart from '../assets/shopping kart website.png'
-import Todo from '../assets/todo website.png'
+import { motion, useAnimation } from 'framer-motion';
+import { useState, useEffect } from "react";
+import LaBelle from "../assets/labelle website.png";
+import Kart from "../assets/shopping kart website.png";
+import Todo from "../assets/todo website.png";
+import { Button, Card, Image, CardBody, CardFooter } from "@nextui-org/react";
 
 const Works = () => {
-  return (
-    <div className="container-md  subContainer mt-5" id='works'>
-        <div className="worksTitle subTitle">
-            My Works
-        </div>
-        <div className="workTiles d-flex ">
-            <div className="workContainer ">
-              <img src={LaBelle} width='400px' className='p-3' alt="" />
-              <div className="px-3">
-                <h4 className=''><b>LaBelle '23 Website</b></h4>
-                <p className=''>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae accusantium fugiat esse ratione qui totam consequatur voluptas, voluptatum eaque facilis soluta itaque ullam quae voluptatibus.</p>
-                <a href='https://msahalkc.github.io/LaBelle/' className='btn getBtn viewSite'>View Website</a>
-                <a href='https://github.com/msahalkc/LaBelle' className='btn getBtn githubBtn mx-3'><i className="fa-brands fa-github" style={{ color: '#eee5e0' }}></i></a>
-              </div>
-            </div>
-            <div className="workContainer ">
-            <img src={Todo} width='400px' className='p-3' alt="" />
-              <div className="px-3">
-                <h4 className=''><b>Todo Application using React</b></h4>
-                <p className=''>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae accusantium fugiat esse ratione qui totam consequatur voluptas, voluptatum eaque facilis soluta itaque ullam quae voluptatibus.</p>
-                <a href='https://todo-react-kc.netlify.app/' className='btn getBtn viewSite'>View Website</a>
-                <a href='https://github.com/msahalkc/todo-react' className='btn getBtn githubBtn mx-3'><i className="fa-brands fa-github" style={{ color: '#eee5e0' }}></i></a>
-              </div>
-            </div>
-            <div className="workContainer mx-0">
-            <img src={Kart} width='400px' className='p-3' alt="" />
-              <div className="px-3">
-                <h4 className=''><b>E-Commerce Website</b></h4>
-                <p className=''>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae accusantium fugiat esse ratione qui totam consequatur voluptas, voluptatum eaque facilis soluta itaque ullam quae voluptatibus.</p>
-                <a href='' className='btn getBtn viewSite'>View Website</a>
-                <a href='https://github.com/msahalkc/E-Commerce-website-using-express-and-node.js' className='btn getBtn githubBtn mx-3'><i className="fa-brands fa-github" style={{ color: '#eee5e0' }}></i></a>
-              </div>
-            </div>
-        </div>
-    </div>
-  )
-}
+  const [isVisible, setIsVisible] = useState(false);
 
-export default Works
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 500) {
+        setIsVisible(true);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
+  const controls = useAnimation();
+
+  useEffect(() => {
+    if (isVisible) {
+      controls.start(i => ({
+        opacity: 1,
+        y: 0,
+        transition: { duration: 1, delay: i * 0.3 } // Add a delay to each card based on its index
+      }));
+    }
+  }, [isVisible, controls]);
+
+  const projects = [
+    {
+      image: LaBelle,
+      title: "LaBelle '23 Website",
+      description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae accusantium fugiat esse ratione qui totam consequatur voluptas, voluptatum eaque facilis soluta itaque ullam quae voluptatibus.",
+      websiteLink: "https://msahalkc.github.io/LaBelle/",
+      githubLink: "https://github.com/msahalkc/LaBelle"
+    },
+    {
+      image: Todo,
+      title: "Todo Application using React",
+      description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae accusantium fugiat esse ratione qui totam consequatur voluptas, voluptatum eaque facilis soluta itaque ullam quae voluptatibus.",
+      websiteLink: "https://todo-react-kc.netlify.app/",
+      githubLink: "https://github.com/msahalkc/todo-react"
+    },
+    {
+      image: Kart,
+      title: "E-Commerce Website",
+      description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae accusantium fugiat esse ratione qui totam consequatur voluptas, voluptatum eaque facilis soluta itaque ullam quae voluptatibus.",
+      websiteLink: "",
+      githubLink: "https://github.com/msahalkc/E-Commerce-website-using-express-and-node.js"
+    }
+  ];
+
+  return (
+    <div className="md:min-h-screen p-10 md:px-48 pt-28" id="Works">
+      <div className="text-6xl Bebas">My Works</div>
+      <div className="flex justify-between mt-10 gap-10 flex-col md:flex-row">
+        {projects.map((project, index) => (
+          <motion.div
+            key={index}
+            initial={{ opacity: 0, y: 20 }}
+            animate={controls}
+            custom={index}
+            className="w-full"
+          >
+            <Card shadow='none' className="p-3 border-1 border-[#eee5e0] rounded-none bg-transparent text-[#eee5e0]">
+              <CardBody>
+                <Image src={project.image} className="w-fit" radius="none" alt="" />
+                <h4 className="md:text-2xl mt-5">
+                  <b>{project.title}</b>
+                </h4>
+              </CardBody>
+              <CardFooter>
+                <div className="flex flex-col gap-1">
+                  <p className="text-justify">
+                    {project.description}
+                  </p>
+                  <div className='flex gap-4'>
+                    <Button className="bg-transparent border-1 text-[#eee5e0] rounded-none w-fit">
+                      <a href={project.websiteLink} className="">
+                        View Website
+                      </a>
+                    </Button>
+                    <Button className="bg-transparent border-1 text-[#eee5e0] rounded-none w-fit">
+                      <a href={project.githubLink} className="">
+                        <i
+                          className="fa-brands fa-github"
+                          style={{ color: "#eee5e0" }}
+                        ></i>
+                      </a>
+                    </Button>
+                  </div>
+                </div>
+              </CardFooter>
+            </Card>
+          </motion.div>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+export default Works;

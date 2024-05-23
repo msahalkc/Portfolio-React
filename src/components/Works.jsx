@@ -63,9 +63,9 @@ const Works = () => {
   ];
 
   return (
-    <div className="md:min-h-screen p-10 md:px-48 pt-28" id="Works">
+    <div className="sm:min-h-screen p-10 sm:px-48 pt-28" id="Works">
       <div className="text-6xl Bebas">My Works</div>
-      <div className="flex justify-between mt-10 gap-10 flex-col md:flex-row">
+      <div className="flex justify-between mt-10 gap-10 flex-col sm:flex-row flex-wrap md:flex-nowrap">
         {projects.map((project, index) => (
           <motion.div
             key={index}
@@ -85,7 +85,7 @@ const Works = () => {
                   
                   alt=""
                 />
-                <h4 className="md:text-2xl mt-5">
+                <h4 className="sm:text-2xl mt-5">
                   <b>{project.title}</b>
                 </h4>
               </CardBody>

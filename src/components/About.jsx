@@ -45,9 +45,9 @@ const About = () => {
   ];
 
   return (
-    <div id="About" className="md:min-h-screen p-10 md:px-48 pt-28" ref={aboutRef}>
+    <div id="About" className="sm:min-h-screen p-10 sm:px-48 pt-28" ref={aboutRef}>
       <div className="text-6xl Bebas">ABOUT ME</div>
-      <div className="flex justify-between mt-10 gap-10 flex-col md:flex-row">
+      <div className="flex justify-between mt-10 gap-10 flex-col sm:flex-row flex-wrap md:flex-nowrap">
         {sections.map((section, index) => (
           <motion.div
             key={index}
@@ -79,7 +79,7 @@ const About = () => {
         <h5 className="Bebas text-3xl bg-blueee-500 dark:bg-emerald-500 text-blaq-1000 w-fit px-2 rounded-lg">
           Graphic Design Portfolio
         </h5>
-        <div className="flex justify-between mt-5 flex-col md:flex-row gap-10">
+        <div className="flex justify-between mt-5 flex-col sm:flex-row gap-10 flex-wrap md:flex-nowrap">
           {iframes.map((iframe, index) => (
             <iframe
               key={index}
@@ -87,7 +87,7 @@ const About = () => {
               allowFullScreen
               loading="lazy"
               allow="clipboard-write"
-              className="md:w-[30%] h-[300px] overflow-hidden rounded-lg"
+              className="w-full md:w-[30%] h-[300px] overflow-hidden rounded-lg"
               height={'300px'}
             ></iframe>
           ))}

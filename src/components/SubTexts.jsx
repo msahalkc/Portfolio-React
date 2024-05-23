@@ -7,7 +7,7 @@ const SubTexts = () => {
       initial={{ opacity: 0, y: 20 }} // Initial animation properties
       animate={{ opacity: 1, y: 0 }} // Animation properties when component is mounted
       transition={{ duration: 1 }} // Transition duration
-      className="flex md:items-center md:px-64 px-10 mt-10 flex-col md:flex-row gap-5 text-sm md:text-lg"
+      className="flex sm:items-center sm:px-24 md:px-48 px-10 mt-5 sm:mt-10 flex-col sm:flex-row gap-5 text-sm sm:text-lg"
     >
       <div className="">
         <h6 className='Brittany text-3xl bg-blueee-500 dark:bg-emerald-500 w-fit text-blaq-1000 rounded-lg'>So who am I<span className='font-[Urbanist]'> ?</span></h6>

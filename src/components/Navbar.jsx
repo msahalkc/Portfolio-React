@@ -18,7 +18,7 @@ const CustomNavbar = () => {
   return (
     <NextUINavbar
       onMenuOpenChange={setIsMenuOpen}
-      className="dark:text-emerald-50 bg-transparent md:px-10 md:py-5 px-3 py-3"
+      className="dark:text-emerald-50 bg-transparent sm:px-10 sm:py-5 px-3 py-3"
       position="sticky"
       maxWidth="full"
     >
@@ -29,13 +29,16 @@ const CustomNavbar = () => {
           <p className="font-normal">muhammed</p>
           <p className="font-bold">sahal kc</p>
         </NavbarBrand>
+        <NavbarItem className="sm:hidden">
+          <ThemeSwitch />
+        </NavbarItem>
         <NavbarMenuToggle
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
           className="sm:hidden"
         />
       </NavbarContent>
       <NavbarContent className="hidden sm:flex gap-4" justify="end">
-        <NavbarItem>
+        <NavbarItem className="hidden sm:block">
           <ThemeSwitch />
         </NavbarItem>
         <NavbarItem>
@@ -59,7 +62,7 @@ const CustomNavbar = () => {
         <NavbarMenuItem>
           <Link
             href="#Works"
-            className="dark:text-emerald-50 dark:hover:text-blueee-500 dark:text-emerald-500 text-blaq-1000 text-lg"
+            className="dark:hover:text-emerald-500 dark:text-emerald-50 text-blaq-1000 hover:text-blueee-500 text-lg"
           >
             Works
           </Link>
@@ -67,7 +70,7 @@ const CustomNavbar = () => {
         <NavbarMenuItem>
           <Link
             href="#About"
-            className="dark:text-emerald-50 dark:hover:text-blueee-500 dark:text-emerald-500 text-blaq-1000 text-lg"
+            className="dark:hover:text-emerald-500 dark:text-emerald-50 text-blaq-1000 hover:text-blueee-500 text-lg"
           >
             About
           </Link>
@@ -75,7 +78,7 @@ const CustomNavbar = () => {
         <NavbarMenuItem>
           <Link
             href="#Contact"
-            className="dark:text-emerald-50 dark:hover:text-blueee-500 dark:text-emerald-500 text-blaq-1000 text-lg"
+            className="dark:hover:text-emerald-500 dark:text-emerald-50 text-blaq-1000 hover:text-blueee-500 text-lg"
           >
             Contact
           </Link>

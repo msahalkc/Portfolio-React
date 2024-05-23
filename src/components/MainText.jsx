@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { motion } from "framer-motion";
 
 const MainText = () => {
   return (
@@ -6,9 +6,10 @@ const MainText = () => {
       initial={{ opacity: 0, y: -20 }} // Initial animation properties
       animate={{ opacity: 1, y: 0 }} // Animation properties when component is mounted
       transition={{ duration: 1 }} // Transition duration
-      className="text-center text-4xl md:text-9xl text-[#eee5e0] Bebas"
+      className="text-center relative"
     >
-      <h1>
+      <h6 className="Brittany z-50 text-4xl pt-5">Hi, I am a</h6>
+      <h1 className="text-4xl md:text-9xl Bebas">
         {"{"}Front End Developer{"}"}
       </h1>
     </motion.div>

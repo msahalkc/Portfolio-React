@@ -1,6 +1,8 @@
 // App.jsx
 // import './App.css'
 import "./index.css";
+import './fonts/Fonts.css';
+
 import Navbar from "./components/Navbar";
 import Landing from './components/Landing'
 import Works from "./components/Works";

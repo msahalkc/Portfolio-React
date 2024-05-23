@@ -1,4 +1,4 @@
-import { motion, useAnimation } from 'framer-motion';
+import { motion, useAnimation } from "framer-motion";
 import { useState, useEffect } from "react";
 import LaBelle from "../assets/labelle website.png";
 import Kart from "../assets/shopping kart website.png";
@@ -15,10 +15,10 @@ const Works = () => {
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
 
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
@@ -26,10 +26,10 @@ const Works = () => {
 
   useEffect(() => {
     if (isVisible) {
-      controls.start(i => ({
+      controls.start((i) => ({
         opacity: 1,
         y: 0,
-        transition: { duration: 1, delay: i * 0.3 } // Add a delay to each card based on its index
+        transition: { duration: 1, delay: i * 0.3 }, // Add a delay to each card based on its index
       }));
     }
   }, [isVisible, controls]);
@@ -38,24 +38,28 @@ const Works = () => {
     {
       image: LaBelle,
       title: "LaBelle '23 Website",
-      description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae accusantium fugiat esse ratione qui totam consequatur voluptas, voluptatum eaque facilis soluta itaque ullam quae voluptatibus.",
+      description:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae accusantium fugiat esse ratione qui totam consequatur voluptas, voluptatum eaque facilis soluta itaque ullam quae voluptatibus.",
       websiteLink: "https://msahalkc.github.io/LaBelle/",
-      githubLink: "https://github.com/msahalkc/LaBelle"
+      githubLink: "https://github.com/msahalkc/LaBelle",
     },
     {
       image: Todo,
       title: "Todo Application using React",
-      description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae accusantium fugiat esse ratione qui totam consequatur voluptas, voluptatum eaque facilis soluta itaque ullam quae voluptatibus.",
+      description:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae accusantium fugiat esse ratione qui totam consequatur voluptas, voluptatum eaque facilis soluta itaque ullam quae voluptatibus.",
       websiteLink: "https://todo-react-kc.netlify.app/",
-      githubLink: "https://github.com/msahalkc/todo-react"
+      githubLink: "https://github.com/msahalkc/todo-react",
     },
     {
       image: Kart,
       title: "E-Commerce Website",
-      description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae accusantium fugiat esse ratione qui totam consequatur voluptas, voluptatum eaque facilis soluta itaque ullam quae voluptatibus.",
+      description:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae accusantium fugiat esse ratione qui totam consequatur voluptas, voluptatum eaque facilis soluta itaque ullam quae voluptatibus.",
       websiteLink: "",
-      githubLink: "https://github.com/msahalkc/E-Commerce-website-using-express-and-node.js"
-    }
+      githubLink:
+        "https://github.com/msahalkc/E-Commerce-website-using-express-and-node.js",
+    },
   ];
 
   return (
@@ -70,30 +74,33 @@ const Works = () => {
             custom={index}
             className="w-full"
           >
-            <Card shadow='none' className="p-3 border-1 border-[#eee5e0] rounded-none bg-transparent text-[#eee5e0]">
+            <Card
+              shadow="none"
+              className="p-3 border-1 border-blueee-500 dark:border-emerald-200  bg-transparent "
+            >
               <CardBody>
-                <Image src={project.image} className="w-fit" radius="none" alt="" />
+                <Image
+                  src={project.image}
+                  className="w-fit"
+                  
+                  alt=""
+                />
                 <h4 className="md:text-2xl mt-5">
                   <b>{project.title}</b>
                 </h4>
               </CardBody>
               <CardFooter>
-                <div className="flex flex-col gap-1">
-                  <p className="text-justify">
-                    {project.description}
-                  </p>
-                  <div className='flex gap-4'>
-                    <Button className="bg-transparent border-1 text-[#eee5e0] rounded-none w-fit">
+                <div className="flex flex-col gap-3">
+                  <p className="text-justify">{project.description}</p>
+                  <div className="flex gap-4">
+                    <Button className="bg-blueee-500 dark:bg-emerald-500 text-blaq-1000  w-fit">
                       <a href={project.websiteLink} className="">
                         View Website
                       </a>
                     </Button>
-                    <Button className="bg-transparent border-1 text-[#eee5e0] rounded-none w-fit">
+                    <Button className="bg-blueee-500 dark:bg-emerald-500 text-blaq-1000  w-fit">
                       <a href={project.githubLink} className="">
-                        <i
-                          className="fa-brands fa-github"
-                          style={{ color: "#eee5e0" }}
-                        ></i>
+                        <i className="fa-brands fa-github"></i>
                       </a>
                     </Button>
                   </div>

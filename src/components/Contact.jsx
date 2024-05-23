@@ -39,7 +39,7 @@ const Contact = () => {
           <span className="text-3xl md:text-6xl">
             I&apos;ve been <br />
           </span>
-          <span className="text-3xl md:text-6xl text-[#a4db73]">waiting for you.</span>
+          <span className="text-3xl md:text-6xl text-blueee-500 dark:text-emerald-500">waiting for you.</span>
           <p className="mt-4">
             Fill in the form or{" "}
             <a href="">
@@ -50,7 +50,7 @@ const Contact = () => {
           </p>
           <div className="flex flex-col gap-5 mt-5">
             <div className="flex gap-3 md:gap-5 items-center">
-              <div className="bg-[#ec3d64] rounded-full">
+              <div className="bg-blueee-500 dark:bg-emerald-800 rounded-full">
                 <i className="fa-solid fa-mobile p-3 md:p-5"></i>
               </div>
               <div className="">
@@ -58,7 +58,7 @@ const Contact = () => {
               </div>
             </div>
             <div className="flex gap-3 md:gap-5 items-center">
-              <div className="bg-[#ec3d64] rounded-full">
+              <div className="bg-blueee-500 dark:bg-emerald-800 rounded-full">
                 <i className="fa-solid fa-envelope p-3 md:p-5"></i>
               </div>
               <div className="">
@@ -66,7 +66,7 @@ const Contact = () => {
               </div>
             </div>
             <div className="flex gap-3 md:gap-5 items-center">
-              <div className="bg-[#ec3d64] rounded-full">
+              <div className="bg-blueee-500 dark:bg-emerald-800 rounded-full">
                 <i className="fa-solid fa-location-arrow p-3 md:p-5"></i>
               </div>
               <div className="">
@@ -92,7 +92,7 @@ const Contact = () => {
               required
               placeholder="Enter Your Name"
               variant="bordered"
-              radius="none"
+              
             />
             <Input
               type="email"
@@ -102,7 +102,7 @@ const Contact = () => {
               required
               placeholder="Enter Your Email"
               variant="bordered"
-              radius="none"
+              
             />
             <Input
               type="text"
@@ -112,7 +112,7 @@ const Contact = () => {
               required
               placeholder="Enter the Subject"
               variant="bordered"
-              radius="none"
+              
             />
             <Textarea
               id="message"
@@ -121,9 +121,9 @@ const Contact = () => {
               required
               placeholder="Enter you Message"
               variant="bordered"
-              radius="none"
+              
             ></Textarea>
-            <Button type="submit" className="bg-[#ec3d64] text-[#eee5e0] font-semibold" radius="none">
+            <Button type="submit" className="bg-blueee-500 dark:bg-emerald-800 text-emerald-50 font-semibold" >
               Submit
             </Button>
           </div>

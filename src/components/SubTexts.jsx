@@ -10,6 +10,7 @@ const SubTexts = () => {
       className="flex md:items-center md:px-64 px-10 mt-10 flex-col md:flex-row gap-5 text-sm md:text-lg"
     >
       <div className="">
+        <h6 className='Brittany text-3xl bg-blueee-500 dark:bg-emerald-500 w-fit text-blaq-1000 rounded-lg'>So who am I<span className='font-[Urbanist]'> ?</span></h6>
         <p className="text-balance">
           I&apos;m <b>Muhammed Sahal K C</b>, a final year BTech student
           majoring in Computer Science and Engineering at MES College of
@@ -17,6 +18,7 @@ const SubTexts = () => {
         </p>
       </div>
       <div className="">
+      <h6 className='Brittany text-3xl bg-blueee-500 dark:bg-emerald-500 w-fit text-blaq-1000 rounded-lg'>What do I do<span className='font-[Urbanist]'> ?</span></h6>
         <p className="text-balance">
           🔭 I&apos;m passionate about coding and problem-solving, constantly
           exploring new technologies and honing my skills to become a proficient{" "}
@@ -24,7 +26,7 @@ const SubTexts = () => {
         </p>
       </div>
       <div className="">
-        <Button className="bg-transparent border-1 text-[#eee5e0] rounded-none">Get in Touch</Button>
+        <Button className="bg-blueee-500 dark:bg-emerald-500 text-blaq-1000 font-semibold ">Get in Touch</Button>
       </div>
     </motion.div>
   );

@@ -56,9 +56,9 @@ const About = () => {
             transition={{ duration: 1, delay: index * 0.3 }}
             className="w-full"
           >
-            <Card shadow='none' className={`border-1 border-[#eee5e0] p-3 rounded-none bg-transparent text-[#eee5e0]`}>
+            <Card shadow='none' className={`border-1 border-blueee-500 dark:border-emerald-200 p-3  bg-transparent `}>
               <CardBody>
-                <h5 className={`Bebas text-3xl bg-[#a4db73] !text-[#0a0a0a] w-fit px-2 font-[Kanit]`}>
+                <h5 className={`Bebas text-3xl bg-blueee-500 dark:bg-emerald-500 text-blaq-1000 w-fit px-2 rounded-lg`}>
                   {section.title}
                 </h5>
               </CardBody>
@@ -72,11 +72,11 @@ const About = () => {
         ))}
       </div>
       <motion.div
-        className="mt-10 border-1 border-[#eee5e0] p-5"
+        className="mt-10 border-1 border-blueee-500 dark:border-emerald-200 p-5 rounded-lg"
         initial={{ opacity: 0, y: 20 }}
         animate={controls}
       >
-        <h5 className="Bebas text-3xl bg-[#ec3d64] text-[#eee5e0] w-fit px-2">
+        <h5 className="Bebas text-3xl bg-blueee-500 dark:bg-emerald-500 text-blaq-1000 w-fit px-2 rounded-lg">
           Graphic Design Portfolio
         </h5>
         <div className="flex justify-between mt-5 flex-col md:flex-row gap-10">
@@ -87,7 +87,7 @@ const About = () => {
               allowFullScreen
               loading="lazy"
               allow="clipboard-write"
-              className="md:w-[30%] h-[300px] overflow-hidden"
+              className="md:w-[30%] h-[300px] overflow-hidden rounded-lg"
               height={'300px'}
             ></iframe>
           ))}

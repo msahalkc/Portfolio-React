@@ -9,20 +9,22 @@ import {
   Link,
 } from "@nextui-org/react";
 import { useState } from "react";
-import Logo from "../assets/kc designs white logo.svg";
-// import ThemeSwitch from "./ThemeSwitch";
+import LightLogo from "../assets/kc designs white logo.svg";
+import DarkLogo from "../assets/kc designs dark logo.svg";
+import ThemeSwitch from "./ThemeSwitch";
 
 const CustomNavbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   return (
     <NextUINavbar
       onMenuOpenChange={setIsMenuOpen}
-      className="text-[#eee5e0] bg-transparent md:px-10 md:py-5 px-3 py-3"
+      className="dark:text-emerald-50 bg-transparent md:px-10 md:py-5 px-3 py-3"
       position="sticky"
       maxWidth="full"
     >
       <NavbarContent className="gap-2" justify="start">
-        <img src={Logo} width="60px" alt="KC Designs Logo" />
+        <img src={LightLogo} width="60px" alt="KC Designs Logo" className="hidden dark:block" />
+        <img src={DarkLogo} width="60px" alt="KC Designs Logo" className="dark:hidden" />
         <NavbarBrand className="flex flex-col items-start font-[Kanit] text-lg">
           <p className="font-normal">muhammed</p>
           <p className="font-bold">sahal kc</p>
@@ -33,21 +35,21 @@ const CustomNavbar = () => {
         />
       </NavbarContent>
       <NavbarContent className="hidden sm:flex gap-4" justify="end">
-        {/* <NavbarItem>
-          <ThemeSwitch />
-        </NavbarItem> */}
         <NavbarItem>
-          <Link href="#Works" className="text-[#eee5e0] hover:text-gray-100">
+          <ThemeSwitch />
+        </NavbarItem>
+        <NavbarItem>
+          <Link href="#Works" className="dark:hover:text-emerald-500 dark:text-emerald-50 text-blaq-1000 hover:text-blueee-500">
             Works
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <Link href="#About" className="text-[#eee5e0] hover:text-gray-100">
+          <Link href="#About" className="dark:hover:text-emerald-500 dark:text-emerald-50 text-blaq-1000 hover:text-blueee-500">
             About
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <Link href="#Contact" className="text-[#eee5e0] hover:text-gray-100">
+          <Link href="#Contact" className="dark:hover:text-emerald-500 dark:text-emerald-50 text-blaq-1000 hover:text-blueee-500">
             Contact
           </Link>
         </NavbarItem>
@@ -57,7 +59,7 @@ const CustomNavbar = () => {
         <NavbarMenuItem>
           <Link
             href="#Works"
-            className="text-[#eee5e0] hover:text-gray-100 text-lg"
+            className="dark:text-emerald-50 dark:hover:text-blueee-500 dark:text-emerald-500 text-blaq-1000 text-lg"
           >
             Works
           </Link>
@@ -65,7 +67,7 @@ const CustomNavbar = () => {
         <NavbarMenuItem>
           <Link
             href="#About"
-            className="text-[#eee5e0] hover:text-gray-100 text-lg"
+            className="dark:text-emerald-50 dark:hover:text-blueee-500 dark:text-emerald-500 text-blaq-1000 text-lg"
           >
             About
           </Link>
@@ -73,7 +75,7 @@ const CustomNavbar = () => {
         <NavbarMenuItem>
           <Link
             href="#Contact"
-            className="text-[#eee5e0] hover:text-gray-100 text-lg"
+            className="dark:text-emerald-50 dark:hover:text-blueee-500 dark:text-emerald-500 text-blaq-1000 text-lg"
           >
             Contact
           </Link>

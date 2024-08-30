@@ -28,18 +28,18 @@ const Contact = () => {
   }, [controls, scrollY]);
 
   return (
-    <div className="md:min-h-screen p-10 md:px-48 pt-28 flex flex-col" id="Contact">
+    <div className="sm:min-h-screen p-10 sm:px-48 pt-28 flex flex-col" id="Contact">
       <div className="text-6xl Bebas">Contact Me</div>
-      <div className="flex-1 flex flex-col md:flex-row">
+      <div className="flex-1 flex flex-col sm:flex-row">
         <motion.div
-          className="md:w-[50%] flex flex-col justify-center mt-10 md:mt-0"
+          className="sm:w-[50%] flex flex-col justify-center mt-10 sm:mt-0"
           initial={{ opacity: 0, y: 20 }}
           animate={controls}
         >
-          <span className="text-3xl md:text-6xl">
+          <span className="text-3xl sm:text-6xl">
             I&apos;ve been <br />
           </span>
-          <span className="text-3xl md:text-6xl text-[#a4db73]">waiting for you.</span>
+          <span className="text-3xl sm:text-6xl text-blueee-500 dark:text-emerald-500">waiting for you.</span>
           <p className="mt-4">
             Fill in the form or{" "}
             <a href="">
@@ -49,25 +49,25 @@ const Contact = () => {
             </a>
           </p>
           <div className="flex flex-col gap-5 mt-5">
-            <div className="flex gap-3 md:gap-5 items-center">
-              <div className="bg-[#ec3d64] rounded-full">
-                <i className="fa-solid fa-mobile p-3 md:p-5"></i>
+            <div className="flex gap-3 sm:gap-5 items-center">
+              <div className="bg-blueee-500 dark:bg-emerald-800 rounded-full">
+                <i className="fa-solid fa-mobile p-3 sm:p-5"></i>
               </div>
               <div className="">
                 <p>+91 9847 790 722</p>
               </div>
             </div>
-            <div className="flex gap-3 md:gap-5 items-center">
-              <div className="bg-[#ec3d64] rounded-full">
-                <i className="fa-solid fa-envelope p-3 md:p-5"></i>
+            <div className="flex gap-3 sm:gap-5 items-center">
+              <div className="bg-blueee-500 dark:bg-emerald-800 rounded-full">
+                <i className="fa-solid fa-envelope p-3 sm:p-5"></i>
               </div>
               <div className="">
                 <p>msahalkc@gmail.com</p>
               </div>
             </div>
-            <div className="flex gap-3 md:gap-5 items-center">
-              <div className="bg-[#ec3d64] rounded-full">
-                <i className="fa-solid fa-location-arrow p-3 md:p-5"></i>
+            <div className="flex gap-3 sm:gap-5 items-center">
+              <div className="bg-blueee-500 dark:bg-emerald-800 rounded-full">
+                <i className="fa-solid fa-location-arrow p-3 sm:p-5"></i>
               </div>
               <div className="">
                 <p>MES College of Engineering, Kuttippuram</p>
@@ -76,7 +76,7 @@ const Contact = () => {
           </div>
         </motion.div>
         <motion.form
-          className="md:w-[50%] flex flex-col justify-center gap-5 mt-10 md:mt-0"
+          className="sm:w-[50%] flex flex-col justify-center gap-5 mt-10 sm:mt-0"
           initial={{ opacity: 0, y: 20 }}
           animate={controls}
         >
@@ -92,7 +92,7 @@ const Contact = () => {
               required
               placeholder="Enter Your Name"
               variant="bordered"
-              radius="none"
+              
             />
             <Input
               type="email"
@@ -102,7 +102,7 @@ const Contact = () => {
               required
               placeholder="Enter Your Email"
               variant="bordered"
-              radius="none"
+              
             />
             <Input
               type="text"
@@ -112,7 +112,7 @@ const Contact = () => {
               required
               placeholder="Enter the Subject"
               variant="bordered"
-              radius="none"
+              
             />
             <Textarea
               id="message"
@@ -121,9 +121,9 @@ const Contact = () => {
               required
               placeholder="Enter you Message"
               variant="bordered"
-              radius="none"
+              
             ></Textarea>
-            <Button type="submit" className="bg-[#ec3d64] text-[#eee5e0] font-semibold" radius="none">
+            <Button type="submit" className="bg-blueee-500 dark:bg-emerald-800 text-emerald-50 font-semibold" >
               Submit
             </Button>
           </div>

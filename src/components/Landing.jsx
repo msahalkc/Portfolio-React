@@ -4,7 +4,7 @@ import RoundedRectangle from "./RoundedRectangle";
 
 const Landing = () => {
   return (
-    <div className="flex flex-col md:min-h-[85vh]">
+    <div className="flex flex-col sm:min-h-[85vh] items-center gap-0">
       <MainText />
       <SubTexts />
       <RoundedRectangle />

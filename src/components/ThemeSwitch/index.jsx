@@ -1,10 +1,28 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Switch } from "@nextui-org/react";
 import { MoonIcon } from "./MoonIcon";
 import { SunIcon } from "./SunIcon";
 
-export default function App() {
+export default function ThemeSwitch() {
   const [isDarkMode, setIsDarkMode] = useState(true);
+
+  useEffect(() => {
+    // Apply dark mode class on initial render
+    document.documentElement.classList.add("dark");
+
+    // Save the initial preference to localStorage
+    localStorage.setItem("theme", "dark");
+  }, []);
+
+  useEffect(() => {
+    if (isDarkMode) {
+      document.documentElement.classList.add("dark");
+      localStorage.setItem("theme", "dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+      localStorage.setItem("theme", "light");
+    }
+  }, [isDarkMode]);
 
   const toggleDarkMode = () => {
     setIsDarkMode(!isDarkMode);
@@ -14,8 +32,9 @@ export default function App() {
     <div>
       <Switch
         defaultSelected
+        checked={isDarkMode}
         size="lg"
-        color="secondary"
+        color="success"
         thumbIcon={({ isSelected, className }) =>
           isSelected ? (
             <SunIcon className={className} />
@@ -25,17 +44,6 @@ export default function App() {
         }
         onChange={toggleDarkMode}
       />
-      <style>{`
-        body{
-          background-color: ${isDarkMode ? "#0a0a0a" : "#eee5e0"} !important;
-        }
-        h1, h2, h3, h4, h5, h6, p, a, button, i, Bebas{
-          color: ${isDarkMode ? "#eee5e0" : "#0a0a0a"} !important;
-        }
-        button, div{
-          border-color: ${isDarkMode ? "#eee5e0" : "#0a0a0a"} !important;
-        }
-      `}</style>
     </div>
   );
 }

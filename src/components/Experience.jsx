@@ -1,6 +1,6 @@
 import { motion, useAnimation, useScroll } from 'framer-motion';
 import { useEffect, useRef } from "react";
-import { Card, CardBody, CardFooter } from "@nextui-org/react";
+import { Card, CardBody, CardFooter, Image } from "@nextui-org/react";
 
 const Experience = () => {
   const controls = useAnimation();
@@ -88,11 +88,16 @@ const Experience = () => {
               <CardBody className="flex-none">
                 <div className="flex items-center gap-2">
                   {exp.logo && (
-                    <img 
-                      src={exp.logo} 
-                      alt={`${exp.company} logo`} 
-                      className="w-20 h-10 object-contain rounded-lg bg-white p-1 border-2 border-blueee-500 dark:border-emerald-200"
-                    />
+                    <div className="w-20 h-10 overflow-hidden rounded-lg bg-white p-1 border-2 border-blueee-500 dark:border-emerald-200">
+                      <Image 
+                        src={exp.logo} 
+                        alt={`${exp.company} logo`}
+                        removeWrapper
+                        classNames={{
+                          img: "w-full h-full object-contain"
+                        }}
+                      />
+                    </div>
                   )}
                   <h5 className="Bebas text-2xl bg-blueee-500 dark:bg-emerald-500 text-blaq-1000 w-fit px-2 rounded-lg">
                     {exp.title}

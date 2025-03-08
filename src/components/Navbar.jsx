@@ -2,7 +2,6 @@ import {
   Navbar as NextUINavbar,
   NavbarBrand,
   NavbarContent,
-  NavbarItem,
   NavbarMenuToggle,
   NavbarMenu,
   NavbarMenuItem,
@@ -15,6 +14,21 @@ import ThemeSwitch from "./ThemeSwitch";
 
 const CustomNavbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [activeLink, setActiveLink] = useState("");
+
+  const menuItems = [
+    { name: "Works", href: "#Works" },
+    { name: "Experience", href: "#Experience" },
+    { name: "Blog", href: "#Blog" },
+    { name: "About", href: "#About" },
+    { name: "Contact", href: "#Contact" }
+  ];
+
+  const handleLinkClick = (href) => {
+    setActiveLink(href);
+    setIsMenuOpen(false);
+  };
+
   return (
     <NextUINavbar
       onMenuOpenChange={setIsMenuOpen}
@@ -29,60 +43,52 @@ const CustomNavbar = () => {
           <p className="font-normal">muhammed</p>
           <p className="font-bold">sahal kc</p>
         </NavbarBrand>
-        <NavbarItem className="sm:hidden">
-          <ThemeSwitch />
-        </NavbarItem>
-        <NavbarMenuToggle
-          aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-          className="sm:hidden"
-        />
-      </NavbarContent>
-      <NavbarContent className="hidden sm:flex gap-4" justify="end">
-        <NavbarItem className="hidden sm:block">
-          <ThemeSwitch />
-        </NavbarItem>
-        <NavbarItem>
-          <Link href="#Works" className="dark:hover:text-emerald-500 dark:text-emerald-50 text-blaq-1000 hover:text-blueee-500">
-            Works
-          </Link>
-        </NavbarItem>
-        <NavbarItem>
-          <Link href="#About" className="dark:hover:text-emerald-500 dark:text-emerald-50 text-blaq-1000 hover:text-blueee-500">
-            About
-          </Link>
-        </NavbarItem>
-        <NavbarItem>
-          <Link href="#Contact" className="dark:hover:text-emerald-500 dark:text-emerald-50 text-blaq-1000 hover:text-blueee-500">
-            Contact
-          </Link>
-        </NavbarItem>
       </NavbarContent>
 
-      <NavbarMenu className="pt-16 pl-10 bg-transparent">
-        <NavbarMenuItem>
+      <NavbarContent justify="end" className="hidden sm:flex gap-4">
+        <ThemeSwitch />
+        {menuItems.map((item, index) => (
           <Link
-            href="#Works"
-            className="dark:hover:text-emerald-500 dark:text-emerald-50 text-blaq-1000 hover:text-blueee-500 text-lg"
+            key={index}
+            href={item.href}
+            className={`transition-colors
+              ${activeLink === item.href ? 'text-blueee-500 dark:text-emerald-500' : 'text-blaq-1000 dark:text-emerald-50'}
+              hover:text-blueee-500 dark:hover:text-emerald-500`}
+            onClick={() => handleLinkClick(item.href)}
           >
-            Works
+            {item.name}
           </Link>
-        </NavbarMenuItem>
-        <NavbarMenuItem>
-          <Link
-            href="#About"
-            className="dark:hover:text-emerald-500 dark:text-emerald-50 text-blaq-1000 hover:text-blueee-500 text-lg"
-          >
-            About
-          </Link>
-        </NavbarMenuItem>
-        <NavbarMenuItem>
-          <Link
-            href="#Contact"
-            className="dark:hover:text-emerald-500 dark:text-emerald-50 text-blaq-1000 hover:text-blueee-500 text-lg"
-          >
-            Contact
-          </Link>
-        </NavbarMenuItem>
+        ))}
+      </NavbarContent>
+
+      <NavbarContent className="sm:hidden" justify="end">
+        <ThemeSwitch />
+        <NavbarMenuToggle 
+          className="text-2xl"
+          icon={(isOpen) => (
+            <i className={`fa-solid ${isOpen ? 'fa-xmark' : 'fa-bars'}`}></i>
+          )}
+        />
+      </NavbarContent>
+
+      <NavbarMenu className="pt-16 bg-graay-500/95 dark:bg-blaq-1000/95 backdrop-blur-md sm:hidden">
+        <div className="flex flex-col items-start h-full gap-6 px-6">
+          {menuItems.map((item, index) => (
+            <NavbarMenuItem key={index}>
+              <Link
+                href={item.href}
+                className={`text-2xl sm:text-5xl transition-colors
+                  ${activeLink === item.href ? 'text-blue-500 dark:text-emerald-500' : 'text-blaq-1000 dark:text-emerald-50'}
+                  after:content-[''] after:absolute after:w-0 after:h-[5px] after:bottom-[-5px] after:left-0 
+                  after:bg-blueee-500 dark:after:bg-emerald-500 after:transition-all relative
+                  hover:after:w-full hover:text-blueee-500 dark:hover:text-emerald-500`}
+                onClick={() => handleLinkClick(item.href)}
+              >
+                {item.name}
+              </Link>
+            </NavbarMenuItem>
+          ))}
+        </div>
       </NavbarMenu>
     </NextUINavbar>
   );

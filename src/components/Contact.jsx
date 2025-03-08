@@ -1,10 +1,12 @@
 import { motion, useAnimation, useScroll } from 'framer-motion';
 import { Input, Textarea, Button } from "@nextui-org/react";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 const Contact = () => {
   const controls = useAnimation();
   const { scrollY } = useScroll();
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   useEffect(() => {
     const updateOpacity = () => {
@@ -26,6 +28,32 @@ const Contact = () => {
 
     return scrollY.onChange(updateOpacity);
   }, [controls, scrollY]);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch(`https://formspree.io/f/${import.meta.env.VITE_FORMSPREE_ID}`, {
+        method: "POST",
+        body: new FormData(e.target),
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
+
+      if (response.ok) {
+        setIsSubmitted(true);
+        e.target.reset();
+      } else {
+        alert("Oops! There was a problem submitting your form");
+      }
+    } catch (error) {
+      alert("Oops! There was a problem submitting your form");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   return (
     <div className="sm:min-h-screen p-10 sm:px-48 pt-28 flex flex-col" id="Contact">
@@ -76,6 +104,7 @@ const Contact = () => {
           </div>
         </motion.div>
         <motion.form
+          onSubmit={handleSubmit}
           className="sm:w-[50%] flex flex-col justify-center gap-5 mt-10 sm:mt-0"
           initial={{ opacity: 0, y: 20 }}
           animate={controls}
@@ -83,50 +112,53 @@ const Contact = () => {
           <div className="text-2xl">
             <b>Send me a Message</b>
           </div>
-          <div className="flex flex-col gap-5">
-            <Input
-              type="text"
-              id="name"
-              name="name"
-              className=""
-              required
-              placeholder="Enter Your Name"
-              variant="bordered"
-              
-            />
-            <Input
-              type="email"
-              id="email"
-              name="email"
-              className=""
-              required
-              placeholder="Enter Your Email"
-              variant="bordered"
-              
-            />
-            <Input
-              type="text"
-              id="subject"
-              name="subject"
-              className=""
-              required
-              placeholder="Enter the Subject"
-              variant="bordered"
-              
-            />
-            <Textarea
-              id="message"
-              name="message"
-              className=""
-              required
-              placeholder="Enter you Message"
-              variant="bordered"
-              
-            ></Textarea>
-            <Button type="submit" className="bg-blueee-500 dark:bg-emerald-800 text-emerald-50 font-semibold" >
-              Submit
-            </Button>
-          </div>
+          {isSubmitted ? (
+            <div className="bg-emerald-500/10 p-4 rounded-lg border border-emerald-500">
+              <p className="text-emerald-500">Thank you for your message! I'll get back to you soon.</p>
+            </div>
+          ) : (
+            <div className="flex flex-col gap-5">
+              <Input
+                type="text"
+                name="name"
+                required
+                placeholder="Enter Your Name"
+                variant="bordered"
+                disabled={isSubmitting}
+              />
+              <Input
+                type="email"
+                name="email"
+                required
+                placeholder="Enter Your Email"
+                variant="bordered"
+                disabled={isSubmitting}
+              />
+              <Input
+                type="text"
+                name="subject"
+                required
+                placeholder="Enter the Subject"
+                variant="bordered"
+                disabled={isSubmitting}
+              />
+              <Textarea
+                name="message"
+                required
+                placeholder="Enter your Message"
+                variant="bordered"
+                disabled={isSubmitting}
+                minRows={4}
+              />
+              <Button 
+                type="submit" 
+                className="bg-blueee-500 dark:bg-emerald-800 text-emerald-50 font-semibold"
+                isLoading={isSubmitting}
+              >
+                {isSubmitting ? "Sending..." : "Submit"}
+              </Button>
+            </div>
+          )}
         </motion.form>
       </div>
     </div>

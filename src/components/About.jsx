@@ -26,15 +26,15 @@ const About = () => {
   const sections = [
     {
       title: "Front End Development",
-      description: "In Front End Development, I specialize in creating engaging and responsive web interfaces using React, HTML, CSS, JavaScript, and Bootstrap. With these technologies, I ensure that websites are not only visually appealing but also functional and user-friendly, enhancing the overall user experience."
+      description: "Experienced in modern web development with React.js, proficient in HTML5, CSS3, JavaScript (ES6+), and Tailwind CSS. I specialize in building responsive, user-friendly web applications with a focus on performance and best practices. Skilled in state management, component architecture, and integrating RESTful APIs."
     },
     {
       title: "UI/UX Design",
-      description: "My expertise in UI/UX Design revolves around crafting intuitive user experiences and visually appealing designs. I proficiently use Figma and Adobe XD to translate ideas into prototypes and wireframes, refining user flows and visual aesthetics to create seamless and captivating designs."
+      description: "Passionate about creating intuitive and engaging user experiences. Proficient in Figma and Adobe XD for wireframing, prototyping, and design systems. I focus on user-centered design principles, ensuring both aesthetics and functionality work together seamlessly."
     },
     {
-      title: "Graphic Designing",
-      description: "In Graphic Design, I leverage Adobe Illustrator, Photoshop, InDesign, and Canva to create impactful visuals for both digital and print media. Whether it's designing vector graphics, manipulating images, or laying out print materials, I bring creativity and technical proficiency to deliver polished and professional results that resonate with audiences."
+      title: "Graphic Design",
+      description: "Creative graphic designer skilled in Adobe Creative Suite (Photoshop, Illustrator, InDesign) and Canva. Experienced in creating visual content for digital and print media, including logos, branding materials, social media graphics, and marketing collateral. Strong eye for typography, color theory, and composition."
     }
   ];
 
@@ -55,8 +55,12 @@ const About = () => {
             animate={controls}
             transition={{ duration: 1, delay: index * 0.3 }}
             className="w-full"
+            whileHover={{ 
+              scale: 1.02,
+              transition: { duration: 0.2 }
+            }}
           >
-            <Card shadow='none' className={`border-1 border-blueee-500 dark:border-emerald-200 p-3  bg-transparent `}>
+            <Card shadow='none' className={`border-1 border-blueee-500 dark:border-emerald-200 p-3 bg-transparent hover:shadow-lg hover:shadow-blueee-500/20 dark:hover:shadow-emerald-500/20 transition-all duration-300`}>
               <CardBody>
                 <h5 className={`Bebas text-3xl bg-blueee-500 dark:bg-emerald-500 text-blaq-1000 w-fit px-2 rounded-lg`}>
                   {section.title}
@@ -72,9 +76,13 @@ const About = () => {
         ))}
       </div>
       <motion.div
-        className="mt-10 border-1 border-blueee-500 dark:border-emerald-200 p-5 rounded-lg"
+        className="mt-10 border-1 border-blueee-500 dark:border-emerald-200 p-5 rounded-lg hover:shadow-lg hover:shadow-blueee-500/20 dark:hover:shadow-emerald-500/20 transition-all duration-300"
         initial={{ opacity: 0, y: 20 }}
         animate={controls}
+        whileHover={{ 
+          scale: 1.02,
+          transition: { duration: 0.2 }
+        }}
       >
         <h5 className="Bebas text-3xl bg-blueee-500 dark:bg-emerald-500 text-blaq-1000 w-fit px-2 rounded-lg">
           Graphic Design Portfolio

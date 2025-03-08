@@ -12,21 +12,17 @@ const SubTexts = () => {
       <div className="">
         <h6 className='Brittany text-3xl bg-blueee-500 dark:bg-emerald-500 w-fit text-blaq-1000 rounded-lg'>So who am I<span className='font-[Urbanist]'> ?</span></h6>
         <p className="text-balance">
-          I&apos;m <b>Muhammed Sahal K C</b>, a final year BTech student
-          majoring in Computer Science and Engineering at MES College of
-          Engineering, Kuttippuram. 🎓
+          I&apos;m <b>Muhammed Sahal K C</b>, a Software Developer at FantaCode based in Kozhikode, Kerala. With expertise in Full Stack Development, UI/UX Design, and Graphic Design, I bring creative solutions to technical challenges. 🎓
         </p>
       </div>
       <div className="">
       <h6 className='Brittany text-3xl bg-blueee-500 dark:bg-emerald-500 w-fit text-blaq-1000 rounded-lg'>What do I do<span className='font-[Urbanist]'> ?</span></h6>
         <p className="text-balance">
-          🔭 I&apos;m passionate about coding and problem-solving, constantly
-          exploring new technologies and honing my skills to become a proficient{" "}
-          <b>software developer.</b>
+          🔭 I specialize in ASP.NET and AngularJS development while maintaining a strong foundation in React.js. With a keen eye for design and technical proficiency, I create seamless, user-centric digital solutions that make a difference.
         </p>
       </div>
       <div className="">
-        <Button className="bg-blueee-500 dark:bg-emerald-500 text-blaq-1000 font-semibold ">Get in Touch</Button>
+        <Button as="a" href="#Contact" className="bg-blueee-500 dark:bg-emerald-500 text-blaq-1000 font-semibold ">Get in Touch</Button>
       </div>
     </motion.div>
   );

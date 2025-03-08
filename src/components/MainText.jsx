@@ -10,7 +10,7 @@ const MainText = () => {
     >
       <h6 className="Brittany z-50 text-2xl sm:text-4xl pt-5">Hi, I am a</h6>
       <h1 className="text-4xl sm:text-5xl md:text-9xl Bebas">
-        {"{"}Front End Developer{"}"}
+        {"{"}SOFTWARE DEVELOPER{"}"}
       </h1>
     </motion.div>
   );

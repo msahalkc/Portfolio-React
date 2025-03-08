@@ -17,11 +17,12 @@ const CustomNavbar = () => {
   const [activeLink, setActiveLink] = useState("");
 
   const menuItems = [
-    { name: "Works", href: "#Works" },
-    { name: "Experience", href: "#Experience" },
-    { name: "Blog", href: "#Blog" },
-    { name: "About", href: "#About" },
-    { name: "Contact", href: "#Contact" }
+    { name: "Works", href: "/#Works" },
+    { name: "Experience", href: "/#Experience" },
+    { name: "Tools", href: "/dns-lookup-tools" },
+    { name: "Blog", href: "/#Blog" },
+    { name: "About", href: "/#About" },
+    { name: "Contact", href: "/#Contact" },
   ];
 
   const handleLinkClick = (href) => {

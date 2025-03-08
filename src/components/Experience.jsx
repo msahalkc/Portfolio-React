@@ -26,7 +26,7 @@ const Experience = () => {
     {
       title: "Software Developer",
       company: "FantaCode",
-      logo: "./src/assets/company-logos/fantacode.png",
+      logo: "/company-logos/fantacode.png",
       location: "Kozhikode, Kerala, India",
       duration: "June 2024 - Present",
       description: "Working as a Software Developer at FantaCode, focused on developing innovative solutions.",
@@ -35,7 +35,7 @@ const Experience = () => {
     {
       title: "Chief Technical Officer",
       company: "IEDC MESCE",
-      logo: "./src/assets/company-logos/iedc-mesce.png",
+      logo: "/company-logos/iedc-mesce.png",
       location: "Malappuram, Kerala, India",
       duration: "July 2023 - June 2024",
       description: "Led technical initiatives and teams at IEDC MESCE, overseeing project development and implementation.",
@@ -44,7 +44,7 @@ const Experience = () => {
     {
       title: "React Developer Intern",
       company: "Tecnavis Web Solutions Pvt Ltd",
-      logo: "./src/assets/company-logos/tecnavis.png",
+      logo: "/company-logos/tecnavis.png",
       location: "Kerala, India",
       duration: "March 2024 - May 2024",
       description: "Worked on React.js based web applications, contributing to frontend development and user interface design.",
@@ -53,7 +53,7 @@ const Experience = () => {
     {
       title: "Graphic Designer",
       company: "Applied Knowledge Sciences, Inc.",
-      logo: "./src/assets/company-logos/aks.png",
+      logo: "/company-logos/aks.png",
       location: "Virginia, United States (Remote)",
       duration: "October 2023 - January 2024",
       description: "Created visual content and design solutions for an international client base.",

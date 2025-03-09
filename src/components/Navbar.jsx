@@ -38,12 +38,14 @@ const CustomNavbar = () => {
       maxWidth="full"
     >
       <NavbarContent className="gap-2" justify="start">
-        <img src={LightLogo} width="60px" alt="KC Designs Logo" className="hidden dark:block" />
-        <img src={DarkLogo} width="60px" alt="KC Designs Logo" className="dark:hidden" />
-        <NavbarBrand className="flex flex-col items-start font-[Kanit] text-lg">
-          <p className="font-normal">muhammed</p>
-          <p className="font-bold">sahal kc</p>
-        </NavbarBrand>
+        <Link href="/" className="flex items-center gap-2">
+          <img src={LightLogo} width="60px" alt="KC Designs Logo" className="hidden dark:block" />
+          <img src={DarkLogo} width="60px" alt="KC Designs Logo" className="dark:hidden" />
+          <NavbarBrand className="flex flex-col items-start font-[Kanit] text-lg">
+            <p className="font-normal text-black dark:text-white">muhammed</p>
+            <p className="font-bold text-black dark:text-white">sahal kc</p>
+          </NavbarBrand>
+        </Link>
       </NavbarContent>
 
       <NavbarContent justify="end" className="hidden sm:flex gap-4">

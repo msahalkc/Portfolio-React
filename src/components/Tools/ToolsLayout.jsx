@@ -109,7 +109,7 @@ const ToolsLayout = () => {
         {currentTool ? (
           <div className="h-full flex flex-col">
             <h2 className="text-3xl Bebas mb-6">{currentTool.name}</h2>
-            <div className="flex-1 overflow-auto pr-2">
+            <div className="flex-1 overflow-auto">
               {currentTool.component}
             </div>
           </div>

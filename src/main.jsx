@@ -1,10 +1,11 @@
 import { createRoot } from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { ThemeProvider } from './context/ThemeContext';
 import App from './App';
 import ToolsLayout from './components/Tools/ToolsLayout';
 import ErrorBoundary from './components/ErrorBoundary';
 import NotFound from './components/NotFound';
-import Navbar from './components/Navbar'; // Add import for Navbar
+import Navbar from './components/Navbar';
 
 const AppWithNavbar = ({ children }) => (
   <>
@@ -32,6 +33,8 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById("root")).render(
   <ErrorBoundary>
-    <RouterProvider router={router} />
+    <ThemeProvider>
+      <RouterProvider router={router} />
+    </ThemeProvider>
   </ErrorBoundary>
 );

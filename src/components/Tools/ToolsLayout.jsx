@@ -18,6 +18,7 @@ import MtaStsLookup from "./MtaStsLookup";
 import EmailDeliverability from "./EmailDeliverability";
 import ArinLookup from "./ArinLookup";
 import AsnLookup from "./AsnLookup";
+import SEO from "../SEO";
 
 const ToolsLayout = () => {
   const [selectedCategory, setSelectedCategory] = useState("");
@@ -64,6 +65,11 @@ const ToolsLayout = () => {
 
   return (
     <div className="flex flex-col p-10 sm:px-48">
+      <SEO 
+        title="DNS & Network Tools | Muhammed Sahal K C"
+        description="Free online DNS and network diagnostic tools. Lookup DNS records, check email configurations, analyze domain health, and more."
+        keywords="DNS lookup, WHOIS lookup, MX records, SPF records, DKIM, DMARC, email server test, blacklist check, SSL checker, network tools"
+      />
       <h1 className="text-6xl Bebas mb-10">DNS & Network Tools</h1>
       
       <Card className="mb-8">

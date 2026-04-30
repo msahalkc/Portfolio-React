@@ -3,9 +3,12 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
   "scripts": {
-    "dev": "cross-env NODE_OPTIONS=--experimental-global-webcrypto vite",
-    "build": "cross-env NODE_OPTIONS=--experimental-global-webcrypto vite build",
+    "dev": "vite",
+    "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "test": "node --experimental-vm-modules --no-warnings node_modules/jest/bin/jest.js",

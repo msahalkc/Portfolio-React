@@ -1,11 +1,9 @@
 import MainText from "./MainText";
-import SubTexts from "./SubTexts";
 
 const Landing = () => {
   return (
-    <div className="flex flex-col gap-8 p-10 sm:px-48 pt-20 sm:pt-28">
+    <div className="px-6 sm:px-12 lg:px-20 pt-6 pb-4 flex-shrink-0">
       <MainText />
-      <SubTexts />
     </div>
   );
 };

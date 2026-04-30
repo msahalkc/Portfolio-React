@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import FadeIn from "./FadeIn";
-import SectionHeading from "./SectionHeading";
 
 const Contact = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -40,31 +39,34 @@ const Contact = () => {
     "w-full bg-transparent border-b border-black py-2 outline-none placeholder:text-black/50 focus:border-b-2 transition-all";
 
   return (
-    <div className="p-10 sm:px-48 pt-20 pb-24" id="Contact">
-      <SectionHeading label="05 — Say Hi">Contact Me</SectionHeading>
-      <div className="mt-10 flex flex-col sm:flex-row gap-12">
+    <div id="Contact">
+      <div className="flex flex-col sm:flex-row gap-12">
         <FadeIn className="sm:w-1/2 flex flex-col gap-5" delay={0.1}>
           <p className="font-display text-3xl sm:text-5xl leading-tight tracking-tightest">
-            I&apos;ve been{" "}
-            <span className="italic">waiting</span> for you.
+            I&apos;ve been <span className="italic">waiting</span> for you.
           </p>
           <p className="leading-relaxed">
             Fill in the form or send a message to{" "}
-            <a href="mailto:msahalkc@gmail.com" className="link-underline font-medium">
+            <a
+              href="mailto:msahalkc@gmail.com"
+              className="link-underline font-medium"
+            >
               msahalkc@gmail.com
             </a>
             .
           </p>
-          <ul className="flex flex-col gap-3 mt-2">
-            <li>
-              <span className="text-sm uppercase tracking-wider">Phone</span>
-              <span className="mx-2">&middot;</span>
-              +91 9847 790 722
+          <ul className="flex flex-col gap-3 mt-2 border-t border-black pt-4">
+            <li className="flex items-baseline gap-3">
+              <span className="text-xs uppercase tracking-[0.25em] opacity-70 w-16">
+                Phone
+              </span>
+              <span>+91 9847 790 722</span>
             </li>
-            <li>
-              <span className="text-sm uppercase tracking-wider">Email</span>
-              <span className="mx-2">&middot;</span>
-              msahalkc@gmail.com
+            <li className="flex items-baseline gap-3">
+              <span className="text-xs uppercase tracking-[0.25em] opacity-70 w-16">
+                Email
+              </span>
+              <span>msahalkc@gmail.com</span>
             </li>
           </ul>
         </FadeIn>

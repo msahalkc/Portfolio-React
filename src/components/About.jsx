@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import SectionHeading from "./SectionHeading";
 
 const About = () => {
   const sections = [
@@ -21,9 +20,13 @@ const About = () => {
   ];
 
   return (
-    <div id="About" className="p-10 sm:px-48 pt-20">
-      <SectionHeading label="04 — Skills">About Me</SectionHeading>
-      <div className="flex flex-col gap-10 mt-10">
+    <div id="About" className="flex flex-col gap-8">
+      <p className="font-display text-2xl sm:text-3xl italic max-w-3xl leading-snug">
+        I&apos;m <span className="font-semibold not-italic">Muhammed Sahal K C</span>,
+        a Software Developer at FantaCode based in Kozhikode, Kerala — building at
+        the intersection of design and engineering.
+      </p>
+      <div className="flex flex-col gap-8 mt-2">
         {sections.map((section, index) => (
           <motion.article
             key={index}
@@ -35,14 +38,19 @@ const About = () => {
               delay: index * 0.08,
               ease: [0.25, 0.1, 0.25, 1],
             }}
-            className="border-t border-black pt-6"
+            className="border-t border-black pt-6 grid grid-cols-12 gap-4"
           >
-            <h3 className="font-display text-2xl sm:text-3xl italic">
-              {section.title}
-            </h3>
-            <p className="mt-3 max-w-3xl leading-relaxed">
-              {section.description}
-            </p>
+            <span className="col-span-12 sm:col-span-2 text-xs uppercase tracking-[0.25em] opacity-70 pt-2">
+              {String(index + 1).padStart(2, "0")} · Skill
+            </span>
+            <div className="col-span-12 sm:col-span-10">
+              <h3 className="font-display text-3xl sm:text-4xl italic tracking-tightest">
+                {section.title}
+              </h3>
+              <p className="mt-3 max-w-3xl leading-relaxed">
+                {section.description}
+              </p>
+            </div>
           </motion.article>
         ))}
       </div>

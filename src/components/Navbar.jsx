@@ -1,28 +1,7 @@
-import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 
-const useISTClock = () => {
-  const [now, setNow] = useState("");
-  useEffect(() => {
-    const fmt = new Intl.DateTimeFormat("en-GB", {
-      hour: "2-digit",
-      minute: "2-digit",
-      second: "2-digit",
-      hour12: false,
-      timeZone: "Asia/Kolkata",
-    });
-    const tick = () => setNow(fmt.format(new Date()));
-    tick();
-    const id = setInterval(tick, 1000);
-    return () => clearInterval(id);
-  }, []);
-  return now;
-};
-
 const CustomNavbar = () => {
-  const time = useISTClock();
-
   return (
     <motion.nav
       initial={{ opacity: 0, y: -16 }}
@@ -37,10 +16,6 @@ const CustomNavbar = () => {
         >
           Muhammed Sahal K C
         </Link>
-        <span className="hidden sm:flex items-center gap-2 text-[10px] sm:text-xs uppercase tracking-[0.2em] border-l border-black pl-4">
-          <span className="pulse-dot w-2 h-2 rounded-full bg-black" />
-          Available
-        </span>
       </div>
       <div className="flex items-center gap-3 sm:gap-6 text-xs uppercase tracking-[0.2em]">
         <a href="/#Wall" className="link-grow hidden sm:inline">
@@ -49,9 +24,6 @@ const CustomNavbar = () => {
         <Link to="/dns-lookup-tools" className="link-grow">
           Tools
         </Link>
-        <span className="hidden md:inline font-mono tabular-nums opacity-70 normal-case">
-          {time} IST
-        </span>
       </div>
     </motion.nav>
   );

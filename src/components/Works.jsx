@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import SectionHeading from "./SectionHeading";
 
 const Works = () => {
   const projects = [
@@ -43,34 +42,36 @@ const Works = () => {
   ];
 
   return (
-    <div className="p-10 sm:px-48 pt-20" id="Works">
-      <SectionHeading label="01 — Selected">My Works</SectionHeading>
-      <div className="flex flex-col gap-10 mt-10">
-        {projects.map((project, index) => (
-          <motion.article
-            key={index}
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-60px" }}
-            transition={{
-              duration: 0.7,
-              delay: index * 0.08,
-              ease: [0.25, 0.1, 0.25, 1],
-            }}
-            className="border-t border-black pt-6"
-          >
+    <div className="flex flex-col gap-8" id="Works">
+      {projects.map((project, index) => (
+        <motion.article
+          key={index}
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{
+            duration: 0.7,
+            delay: index * 0.08,
+            ease: [0.25, 0.1, 0.25, 1],
+          }}
+          className="border-t border-black pt-6 grid grid-cols-12 gap-4"
+        >
+          <span className="col-span-12 sm:col-span-2 text-xs uppercase tracking-[0.25em] opacity-70 pt-2">
+            {String(index + 1).padStart(2, "0")} · Project
+          </span>
+          <div className="col-span-12 sm:col-span-10">
             <div className="flex items-baseline gap-3 flex-wrap">
-              <h3 className="font-display text-2xl sm:text-3xl">
+              <h3 className="font-display text-3xl sm:text-4xl tracking-tightest">
                 {project.title}
               </h3>
               {project.isArchived && (
-                <span className="text-sm italic">(Archived)</span>
+                <span className="text-sm italic opacity-70">(Archived)</span>
               )}
             </div>
             <p className="mt-3 max-w-3xl leading-relaxed">
               {project.description}
             </p>
-            <div className="flex gap-6 mt-4 text-sm uppercase tracking-wider">
+            <div className="flex gap-6 mt-4 text-xs uppercase tracking-[0.2em]">
               {project.websiteLink && (
                 <a
                   href={project.websiteLink}
@@ -78,7 +79,7 @@ const Works = () => {
                   rel="noopener noreferrer"
                   className="link-grow"
                 >
-                  View Website
+                  View Website ↗
                 </a>
               )}
               {project.githubLink && (
@@ -88,13 +89,13 @@ const Works = () => {
                   rel="noopener noreferrer"
                   className="link-grow"
                 >
-                  Source Code
+                  Source Code ↗
                 </a>
               )}
             </div>
-          </motion.article>
-        ))}
-      </div>
+          </div>
+        </motion.article>
+      ))}
     </div>
   );
 };

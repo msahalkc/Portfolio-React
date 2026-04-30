@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import SectionHeading from "./SectionHeading";
 
 const Experience = () => {
   const experiences = [
@@ -51,36 +50,43 @@ const Experience = () => {
   ];
 
   return (
-    <div id="Experience" className="p-10 sm:px-48 pt-20">
-      <SectionHeading label="02 — Career">Experience</SectionHeading>
-      <div className="flex flex-col gap-10 mt-10">
-        {experiences.map((exp, index) => (
-          <motion.article
-            key={index}
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-60px" }}
-            transition={{
-              duration: 0.7,
-              delay: index * 0.08,
-              ease: [0.25, 0.1, 0.25, 1],
-            }}
-            className="border-t border-black pt-6"
-          >
-            <h3 className="font-display text-2xl sm:text-3xl">{exp.title}</h3>
-            <p className="text-lg italic mt-1">{exp.company}</p>
-            <p className="text-sm uppercase tracking-wider mt-1">
+    <div id="Experience" className="flex flex-col gap-8">
+      {experiences.map((exp, index) => (
+        <motion.article
+          key={index}
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{
+            duration: 0.7,
+            delay: index * 0.08,
+            ease: [0.25, 0.1, 0.25, 1],
+          }}
+          className="border-t border-black pt-6 grid grid-cols-12 gap-4"
+        >
+          <div className="col-span-12 sm:col-span-3">
+            <p className="text-xs uppercase tracking-[0.25em] opacity-70">
+              {String(index + 1).padStart(2, "0")} · Role
+            </p>
+            <p className="text-xs uppercase tracking-[0.2em] mt-2">
               {exp.duration}
             </p>
+          </div>
+          <div className="col-span-12 sm:col-span-9">
+            <h3 className="font-display text-3xl sm:text-4xl tracking-tightest">
+              {exp.title}
+            </h3>
+            <p className="text-lg italic mt-1">{exp.company}</p>
             <p className="mt-3 max-w-3xl leading-relaxed">{exp.description}</p>
-            <p className="mt-3 text-sm">
-              <span className="uppercase tracking-wider">Skills</span>
-              <span className="mx-2">&middot;</span>
-              {exp.skills.join(", ")}
+            <p className="mt-3 text-xs uppercase tracking-[0.2em] opacity-80">
+              Skills <span className="mx-2">&middot;</span>
+              <span className="normal-case tracking-normal">
+                {exp.skills.join(" · ")}
+              </span>
             </p>
-          </motion.article>
-        ))}
-      </div>
+          </div>
+        </motion.article>
+      ))}
     </div>
   );
 };

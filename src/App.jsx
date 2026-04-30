@@ -7,7 +7,6 @@ import Experience from "./components/Experience";
 import About from "./components/About";
 import Contact from "./components/Contact";
 import Blog from "./components/Blog";
-import Marquee from "./components/Marquee";
 import Poster from "./components/Poster";
 import PosterModal from "./components/PosterModal";
 
@@ -18,7 +17,6 @@ const POSTERS = [
     subtitle: "Selected projects, shipped and lived in.",
     meta: "Folio",
     tilt: -1.2,
-    span: "",
     component: <Works />,
   },
   {
@@ -27,7 +25,6 @@ const POSTERS = [
     subtitle: "Where I have left fingerprints.",
     meta: "Career",
     tilt: 1.5,
-    span: "",
     component: <Experience />,
   },
   {
@@ -36,7 +33,6 @@ const POSTERS = [
     subtitle: "Notes from the keyboard.",
     meta: "Writing",
     tilt: -0.8,
-    span: "",
     component: <Blog />,
   },
   {
@@ -45,16 +41,14 @@ const POSTERS = [
     subtitle: "A short, honest introduction.",
     meta: "Profile",
     tilt: 0.7,
-    span: "",
     component: <About />,
   },
   {
     id: "contact",
     title: "Contact",
-    subtitle: "Send a brief, a hello, anything.",
+    subtitle: "Send a brief, a hello.",
     meta: "Say Hi",
     tilt: -0.5,
-    span: "md:col-span-2 md:aspect-auto",
     component: <Contact />,
   },
 ];
@@ -64,31 +58,23 @@ const App = () => {
   const openPoster = openIndex !== null ? POSTERS[openIndex] : null;
 
   return (
-    <div>
+    <div className="h-[calc(100vh-65px)] overflow-hidden flex flex-col">
       <Landing />
-      <Marquee duration={32}>
-        <span>Muhammed Sahal K C</span>
-        <span className="mx-4 spin-slower inline-block">✱</span>
-        <span className="italic">Portfolio</span>
-        <span className="mx-4 spin-slower inline-block">✱</span>
-        <span>2026</span>
-        <span className="mx-4 spin-slower inline-block">✱</span>
-      </Marquee>
-      <section className="p-10 sm:px-24 lg:px-32 pt-16 pb-20" id="Wall">
-        <div className="flex items-end justify-between mb-10 gap-4 flex-wrap">
+      <section
+        className="flex-1 min-h-0 px-6 sm:px-12 lg:px-20 pb-6 flex flex-col"
+        id="Wall"
+      >
+        <div className="flex items-end justify-between mb-3 gap-4 flex-wrap">
           <div>
-            <p className="text-xs uppercase tracking-[0.25em] opacity-70 mb-2">
+            <p className="text-[10px] uppercase tracking-[0.25em] opacity-70 mb-1">
               The Wall
             </p>
-            <h2 className="font-display text-4xl sm:text-6xl tracking-tightest leading-none">
+            <h2 className="font-display text-2xl sm:text-3xl tracking-tightest leading-none">
               Five posters. <span className="italic">Tap to read.</span>
             </h2>
           </div>
-          <p className="text-sm italic max-w-sm">
-            Each poster is a doorway. Pick one and the items behind it open up.
-          </p>
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4 flex-1 min-h-0">
           {POSTERS.map((p, i) => (
             <Poster
               key={p.id}
@@ -97,28 +83,19 @@ const App = () => {
               subtitle={p.subtitle}
               meta={p.meta}
               tilt={p.tilt}
-              span={p.span}
+              aspectClass="h-full"
+              paddingClass="p-3 sm:p-4"
               onClick={() => setOpenIndex(i)}
             />
           ))}
         </div>
       </section>
-      <Marquee duration={36} reverse className="crosshatch">
-        <span className="italic">Available for new projects</span>
-        <span className="mx-4 spin-slower inline-block">✱</span>
-        <span>Let&apos;s build something</span>
-        <span className="mx-4 spin-slower inline-block">✱</span>
-      </Marquee>
-      <footer className="px-10 sm:px-24 py-10 flex items-center justify-between text-xs uppercase tracking-[0.25em]">
-        <span>© Muhammed Sahal K C · 2026</span>
-        <span className="flex items-center gap-2">
-          <span className="spin-slow inline-block">✱</span>
-          Made with Inter &amp; Fraunces
-        </span>
-      </footer>
       <PosterModal
         open={openPoster !== null}
+        index={openIndex}
         title={openPoster?.title}
+        subtitle={openPoster?.subtitle}
+        meta={openPoster?.meta}
         onClose={() => setOpenIndex(null)}
       >
         {openPoster?.component}

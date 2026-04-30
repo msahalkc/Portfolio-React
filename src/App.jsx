@@ -24,7 +24,7 @@ const App = () => {
       <Experience />
       <Blog />
       <About />
-      <Marquee duration={36} reverse>
+      <Marquee duration={36} reverse className="crosshatch">
         <span className="italic">Available for new projects</span>
         <span className="mx-4 spin-slower inline-block">✱</span>
         <span>Let&apos;s build something</span>

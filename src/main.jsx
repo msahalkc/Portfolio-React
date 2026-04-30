@@ -8,6 +8,7 @@ import Navbar from "./components/Navbar";
 
 const AppWithNavbar = ({ children }) => (
   <>
+    <div className="grain-overlay" aria-hidden="true" />
     <Navbar />
     {children}
   </>

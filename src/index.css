@@ -138,3 +138,88 @@ a.link-grow:hover {
   animation: float-y 4s ease-in-out infinite;
   display: inline-block;
 }
+
+@keyframes grain-shift {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  10% {
+    transform: translate(-3%, -2%);
+  }
+  20% {
+    transform: translate(-5%, 3%);
+  }
+  30% {
+    transform: translate(4%, -4%);
+  }
+  40% {
+    transform: translate(-2%, 5%);
+  }
+  50% {
+    transform: translate(-6%, -1%);
+  }
+  60% {
+    transform: translate(5%, 2%);
+  }
+  70% {
+    transform: translate(-4%, -5%);
+  }
+  80% {
+    transform: translate(2%, 4%);
+  }
+  90% {
+    transform: translate(-3%, -3%);
+  }
+}
+
+.grain-overlay {
+  position: fixed;
+  inset: -50%;
+  width: 200%;
+  height: 200%;
+  pointer-events: none;
+  z-index: 100;
+  opacity: 0.55;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 240 240' xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.32 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  animation: grain-shift 8s steps(10) infinite;
+}
+
+.dotted-rule {
+  background-image: radial-gradient(circle, #000 0.8px, transparent 1.2px);
+  background-size: 7px 7px;
+  background-repeat: repeat-x;
+  background-position: 0 50%;
+  height: 7px;
+  width: 100%;
+}
+
+.crosshatch {
+  background-image: repeating-linear-gradient(
+      45deg,
+      rgba(0, 0, 0, 0.18) 0,
+      rgba(0, 0, 0, 0.18) 1px,
+      transparent 1px,
+      transparent 6px
+    ),
+    repeating-linear-gradient(
+      -45deg,
+      rgba(0, 0, 0, 0.18) 0,
+      rgba(0, 0, 0, 0.18) 1px,
+      transparent 1px,
+      transparent 6px
+    );
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .grain-overlay,
+  .spin-slow,
+  .spin-slower,
+  .marquee-track,
+  .float-y,
+  .pulse-dot,
+  .cursor-blink {
+    animation: none !important;
+  }
+}

@@ -58,10 +58,10 @@ const App = () => {
   const openPoster = openIndex !== null ? POSTERS[openIndex] : null;
 
   return (
-    <div className="h-[calc(100vh-65px)] overflow-hidden flex flex-col">
+    <div className="h-[calc(100dvh-58px)] sm:h-[calc(100dvh-65px)] overflow-hidden flex flex-col">
       <Landing />
       <section
-        className="flex-1 min-h-0 px-6 sm:px-12 lg:px-20 pb-6 flex flex-col"
+        className="flex-1 min-h-0 px-4 sm:px-8 md:px-12 lg:px-20 pb-4 sm:pb-6 flex flex-col"
         id="Wall"
       >
         <div className="flex items-end justify-between mb-3 gap-4 flex-wrap">
@@ -69,12 +69,12 @@ const App = () => {
             <p className="text-[10px] uppercase tracking-[0.25em] opacity-70 mb-1">
               The Wall
             </p>
-            <h2 className="font-display text-2xl sm:text-3xl tracking-tightest leading-none">
-              Five posters. <span className="italic">Tap to read.</span>
+            <h2 className="font-display text-xl sm:text-2xl md:text-3xl tracking-tightest leading-none">
+              Five panels. <span className="italic">Tap to read.</span>
             </h2>
           </div>
         </div>
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4 flex-1 min-h-0">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-2.5 sm:gap-3 md:gap-4 flex-1 min-h-0">
           {POSTERS.map((p, i) => (
             <Poster
               key={p.id}
@@ -84,7 +84,7 @@ const App = () => {
               meta={p.meta}
               tilt={p.tilt}
               aspectClass="h-full"
-              paddingClass="p-3 sm:p-4"
+              paddingClass="p-2.5 sm:p-3 md:p-4"
               onClick={() => setOpenIndex(i)}
             />
           ))}

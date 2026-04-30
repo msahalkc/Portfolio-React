@@ -1,3 +1,6 @@
+import { motion } from "framer-motion";
+import FadeIn from "./FadeIn";
+
 const About = () => {
   const sections = [
     {
@@ -19,13 +22,32 @@ const About = () => {
 
   return (
     <div id="About" className="p-10 sm:px-48 pt-20">
-      <h2 className="text-4xl sm:text-5xl font-bold">About Me</h2>
-      <div className="flex flex-col gap-10 mt-8">
+      <FadeIn>
+        <h2 className="font-display text-5xl sm:text-6xl tracking-tightest">
+          About Me
+        </h2>
+      </FadeIn>
+      <div className="flex flex-col gap-10 mt-10">
         {sections.map((section, index) => (
-          <article key={index} className="border-t border-black pt-6">
-            <h3 className="text-2xl font-semibold">{section.title}</h3>
-            <p className="mt-2 max-w-3xl">{section.description}</p>
-          </article>
+          <motion.article
+            key={index}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-60px" }}
+            transition={{
+              duration: 0.7,
+              delay: index * 0.08,
+              ease: [0.25, 0.1, 0.25, 1],
+            }}
+            className="border-t border-black pt-6"
+          >
+            <h3 className="font-display text-2xl sm:text-3xl italic">
+              {section.title}
+            </h3>
+            <p className="mt-3 max-w-3xl leading-relaxed">
+              {section.description}
+            </p>
+          </motion.article>
         ))}
       </div>
     </div>

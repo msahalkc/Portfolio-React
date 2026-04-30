@@ -12,6 +12,13 @@ export default {
       colors: {
         cream: "#f5f0e6",
       },
+      fontFamily: {
+        sans: ['"Inter"', "ui-sans-serif", "system-ui", "sans-serif"],
+        display: ['"Fraunces"', "ui-serif", "Georgia", "serif"],
+      },
+      letterSpacing: {
+        tightest: "-0.04em",
+      },
     },
   },
   plugins: [nextui()],

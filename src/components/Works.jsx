@@ -1,3 +1,6 @@
+import { motion } from "framer-motion";
+import FadeIn from "./FadeIn";
+
 const Works = () => {
   const projects = [
     {
@@ -41,24 +44,43 @@ const Works = () => {
 
   return (
     <div className="p-10 sm:px-48 pt-20" id="Works">
-      <h2 className="text-4xl sm:text-5xl font-bold">My Works</h2>
-      <div className="flex flex-col gap-10 mt-8">
+      <FadeIn>
+        <h2 className="font-display text-5xl sm:text-6xl tracking-tightest">
+          My Works
+        </h2>
+      </FadeIn>
+      <div className="flex flex-col gap-10 mt-10">
         {projects.map((project, index) => (
-          <article key={index} className="border-t border-black pt-6">
+          <motion.article
+            key={index}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-60px" }}
+            transition={{
+              duration: 0.7,
+              delay: index * 0.08,
+              ease: [0.25, 0.1, 0.25, 1],
+            }}
+            className="border-t border-black pt-6"
+          >
             <div className="flex items-baseline gap-3 flex-wrap">
-              <h3 className="text-2xl font-semibold">{project.title}</h3>
+              <h3 className="font-display text-2xl sm:text-3xl">
+                {project.title}
+              </h3>
               {project.isArchived && (
-                <span className="text-sm">(Archived)</span>
+                <span className="text-sm italic">(Archived)</span>
               )}
             </div>
-            <p className="mt-2 max-w-3xl">{project.description}</p>
-            <div className="flex gap-6 mt-3">
+            <p className="mt-3 max-w-3xl leading-relaxed">
+              {project.description}
+            </p>
+            <div className="flex gap-6 mt-4 text-sm uppercase tracking-wider">
               {project.websiteLink && (
                 <a
                   href={project.websiteLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="underline"
+                  className="link-grow"
                 >
                   View Website
                 </a>
@@ -68,13 +90,13 @@ const Works = () => {
                   href={project.githubLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="underline"
+                  className="link-grow"
                 >
                   Source Code
                 </a>
               )}
             </div>
-          </article>
+          </motion.article>
         ))}
       </div>
     </div>

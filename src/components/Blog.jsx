@@ -1,3 +1,6 @@
+import { motion } from "framer-motion";
+import FadeIn from "./FadeIn";
+
 const Blog = () => {
   const blogPosts = [
     {
@@ -12,24 +15,39 @@ const Blog = () => {
 
   return (
     <div id="Blog" className="p-10 sm:px-48 pt-20">
-      <h2 className="text-4xl sm:text-5xl font-bold">Blog Posts</h2>
-      <div className="flex flex-col gap-10 mt-8">
+      <FadeIn>
+        <h2 className="font-display text-5xl sm:text-6xl tracking-tightest">
+          Blog Posts
+        </h2>
+      </FadeIn>
+      <div className="flex flex-col gap-10 mt-10">
         {blogPosts.map((post, index) => (
-          <article key={index} className="border-t border-black pt-6">
-            <h3 className="text-2xl font-semibold">{post.title}</h3>
-            <p className="text-sm mt-1">
+          <motion.article
+            key={index}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-60px" }}
+            transition={{
+              duration: 0.7,
+              delay: index * 0.08,
+              ease: [0.25, 0.1, 0.25, 1],
+            }}
+            className="border-t border-black pt-6"
+          >
+            <h3 className="font-display text-2xl sm:text-3xl">{post.title}</h3>
+            <p className="text-sm uppercase tracking-wider mt-1">
               {post.date} &middot; {post.readTime}
             </p>
-            <p className="mt-2 max-w-3xl">{post.description}</p>
+            <p className="mt-3 max-w-3xl leading-relaxed">{post.description}</p>
             <a
               href={post.link}
               target="_blank"
               rel="noopener noreferrer"
-              className="underline mt-3 inline-block"
+              className="link-grow mt-4 inline-block text-sm uppercase tracking-wider"
             >
-              Read on Medium
+              Read on Medium &rarr;
             </a>
-          </article>
+          </motion.article>
         ))}
       </div>
     </div>

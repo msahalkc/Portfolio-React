@@ -3,7 +3,7 @@ import SubTexts from "./SubTexts";
 
 const Landing = () => {
   return (
-    <div className="flex flex-col gap-8 p-10 sm:px-48 pt-28">
+    <div className="flex flex-col gap-8 p-10 sm:px-48 pt-20 sm:pt-28">
       <MainText />
       <SubTexts />
     </div>

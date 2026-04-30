@@ -1,8 +1,18 @@
-@import url("https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter:wght@300..700&display=swap");
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-feature-settings: "ss01", "ss02";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 
 ::-webkit-scrollbar {
   width: 7.5px;
@@ -22,5 +32,30 @@ body {
 
 a {
   color: inherit;
-  text-decoration: underline;
+  text-decoration: none;
+}
+
+a.link-underline {
+  background-image: linear-gradient(currentColor, currentColor);
+  background-position: 0% 100%;
+  background-repeat: no-repeat;
+  background-size: 100% 1px;
+  transition: background-size 0.4s ease;
+}
+
+a.link-underline:hover {
+  background-size: 0% 1px;
+  background-position: 100% 100%;
+}
+
+a.link-grow {
+  background-image: linear-gradient(currentColor, currentColor);
+  background-position: 0% 100%;
+  background-repeat: no-repeat;
+  background-size: 0% 1px;
+  transition: background-size 0.4s ease;
+}
+
+a.link-grow:hover {
+  background-size: 100% 1px;
 }

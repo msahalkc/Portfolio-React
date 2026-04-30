@@ -27,7 +27,7 @@ const ToolTemplate = ({
           <Button
             onClick={handleLookup}
             isLoading={loading}
-            className="bg-blueee-500 dark:bg-emerald-500 text-white"
+            className="bg-black text-cream"
           >
             {buttonText}
           </Button>

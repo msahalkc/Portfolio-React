@@ -1,46 +1,24 @@
-import { motion, useAnimation, useScroll } from 'framer-motion';
-import { Input, Textarea, Button } from "@nextui-org/react";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 const Contact = () => {
-  const controls = useAnimation();
-  const { scrollY } = useScroll();
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
-
-  useEffect(() => {
-    const updateOpacity = () => {
-      const section = document.getElementById('Contact');
-      if (section) {
-        const rect = section.getBoundingClientRect();
-        const triggerOffset = window.innerHeight * 0.6; // Adjust this value as needed
-        if (rect.top < triggerOffset) {
-          controls.start({
-            opacity: 1,
-            y: 0,
-            transition: { duration: 1, ease: 'easeOut' }
-          });
-        }
-      }
-    };
-
-    updateOpacity();
-
-    return scrollY.onChange(updateOpacity);
-  }, [controls, scrollY]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
 
     try {
-      const response = await fetch(`https://formspree.io/f/${import.meta.env.VITE_FORMSPREE_ID}`, {
-        method: "POST",
-        body: new FormData(e.target),
-        headers: {
-          'Accept': 'application/json'
+      const response = await fetch(
+        `https://formspree.io/f/${import.meta.env.VITE_FORMSPREE_ID}`,
+        {
+          method: "POST",
+          body: new FormData(e.target),
+          headers: {
+            Accept: "application/json",
+          },
         }
-      });
+      );
 
       if (response.ok) {
         setIsSubmitted(true);
@@ -55,111 +33,90 @@ const Contact = () => {
     }
   };
 
+  const inputClass =
+    "w-full bg-transparent border-b border-black py-2 outline-none placeholder:text-black/60";
+
   return (
-    <div className="sm:min-h-screen p-10 sm:px-48 pt-28 flex flex-col" id="Contact">
-      <div className="text-6xl Bebas">Contact Me</div>
-      <div className="flex-1 flex flex-col sm:flex-row">
-        <motion.div
-          className="sm:w-[50%] flex flex-col justify-center mt-10 sm:mt-0"
-          initial={{ opacity: 0, y: 20 }}
-          animate={controls}
-        >
-          <span className="text-3xl sm:text-6xl">
-            I&apos;ve been <br />
-          </span>
-          <span className="text-3xl sm:text-6xl text-blueee-500 dark:text-emerald-500">waiting for you.</span>
-          <p className="mt-4">
-            Fill in the form or{" "}
-            <a href="">
-              <b>
-                <u>Send us an email</u>
-              </b>
-            </a>
+    <div className="p-10 sm:px-48 pt-20" id="Contact">
+      <h2 className="text-4xl sm:text-5xl font-bold">Contact Me</h2>
+      <div className="mt-8 flex flex-col sm:flex-row gap-10">
+        <div className="sm:w-1/2 flex flex-col gap-4">
+          <p className="text-2xl sm:text-4xl">
+            I&apos;ve been waiting for you.
           </p>
-          <div className="flex flex-col gap-5 mt-5">
-            <div className="flex gap-3 sm:gap-5 items-center">
-              <div className="bg-blueee-500 dark:bg-emerald-800 rounded-full">
-                <i className="fa-solid fa-mobile p-3 sm:p-5"></i>
-              </div>
-              <div className="">
-                <p>+91 9847 790 722</p>
-              </div>
-            </div>
-            <div className="flex gap-3 sm:gap-5 items-center">
-              <div className="bg-blueee-500 dark:bg-emerald-800 rounded-full">
-                <i className="fa-solid fa-envelope p-3 sm:p-5"></i>
-              </div>
-              <div className="">
-                <p>msahalkc@gmail.com</p>
-              </div>
-            </div>
-            <div className="flex gap-3 sm:gap-5 items-center">
-              <div className="bg-blueee-500 dark:bg-emerald-800 rounded-full">
-                <i className="fa-solid fa-location-arrow p-3 sm:p-5"></i>
-              </div>
-              <div className="">
-                <p>MES College of Engineering, Kuttippuram</p>
-              </div>
-            </div>
-          </div>
-        </motion.div>
-        <motion.form
+          <p>
+            Fill in the form or send a message to{" "}
+            <a href="mailto:msahalkc@gmail.com" className="underline">
+              msahalkc@gmail.com
+            </a>
+            .
+          </p>
+          <ul className="flex flex-col gap-2 mt-2">
+            <li>
+              <span className="font-semibold">Phone:</span> +91 9847 790 722
+            </li>
+            <li>
+              <span className="font-semibold">Email:</span> msahalkc@gmail.com
+            </li>
+            <li>
+              <span className="font-semibold">Location:</span> MES College of
+              Engineering, Kuttippuram
+            </li>
+          </ul>
+        </div>
+        <form
           onSubmit={handleSubmit}
-          className="sm:w-[50%] flex flex-col justify-center gap-5 mt-10 sm:mt-0"
-          initial={{ opacity: 0, y: 20 }}
-          animate={controls}
+          className="sm:w-1/2 flex flex-col gap-5"
         >
-          <div className="text-2xl">
-            <b>Send me a Message</b>
-          </div>
+          <p className="text-xl font-semibold">Send me a Message</p>
           {isSubmitted ? (
-            <div className="bg-emerald-500/10 p-4 rounded-lg border border-emerald-500">
-              <p className="text-emerald-500">Thank you for your message! I'll get back to you soon.</p>
-            </div>
+            <p className="border border-black p-4">
+              Thank you for your message. I&apos;ll get back to you soon.
+            </p>
           ) : (
-            <div className="flex flex-col gap-5">
-              <Input
+            <>
+              <input
                 type="text"
                 name="name"
                 required
-                placeholder="Enter Your Name"
-                variant="bordered"
+                placeholder="Your Name"
                 disabled={isSubmitting}
+                className={inputClass}
               />
-              <Input
+              <input
                 type="email"
                 name="email"
                 required
-                placeholder="Enter Your Email"
-                variant="bordered"
+                placeholder="Your Email"
                 disabled={isSubmitting}
+                className={inputClass}
               />
-              <Input
+              <input
                 type="text"
                 name="subject"
                 required
-                placeholder="Enter the Subject"
-                variant="bordered"
+                placeholder="Subject"
                 disabled={isSubmitting}
+                className={inputClass}
               />
-              <Textarea
+              <textarea
                 name="message"
                 required
-                placeholder="Enter your Message"
-                variant="bordered"
+                placeholder="Your Message"
                 disabled={isSubmitting}
-                minRows={4}
+                rows={4}
+                className={`${inputClass} resize-none`}
               />
-              <Button 
-                type="submit" 
-                className="bg-blueee-500 dark:bg-emerald-800 text-emerald-50 font-semibold"
-                isLoading={isSubmitting}
+              <button
+                type="submit"
+                disabled={isSubmitting}
+                className="border border-black px-4 py-2 w-fit font-semibold disabled:opacity-50"
               >
                 {isSubmitting ? "Sending..." : "Submit"}
-              </Button>
-            </div>
+              </button>
+            </>
           )}
-        </motion.form>
+        </form>
       </div>
     </div>
   );

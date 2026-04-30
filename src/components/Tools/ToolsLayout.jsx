@@ -70,7 +70,7 @@ const ToolsLayout = () => {
         description="Free online DNS and network diagnostic tools. Lookup DNS records, check email configurations, analyze domain health, and more."
         keywords="DNS lookup, WHOIS lookup, MX records, SPF records, DKIM, DMARC, email server test, blacklist check, SSL checker, network tools"
       />
-      <h1 className="text-6xl Bebas mb-10">DNS & Network Tools</h1>
+      <h1 className="text-4xl sm:text-5xl font-bold mb-10">DNS & Network Tools</h1>
       
       <Card className="mb-8">
         <CardBody className="flex flex-row gap-4">
@@ -108,7 +108,7 @@ const ToolsLayout = () => {
       <div className="flex-1 overflow-hidden">
         {currentTool ? (
           <div className="h-full flex flex-col">
-            <h2 className="text-3xl Bebas mb-6">{currentTool.name}</h2>
+            <h2 className="text-2xl sm:text-3xl font-semibold mb-6">{currentTool.name}</h2>
             <div className="flex-1 overflow-auto">
               {currentTool.component}
             </div>

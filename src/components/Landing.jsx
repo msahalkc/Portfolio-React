@@ -1,13 +1,11 @@
 import MainText from "./MainText";
 import SubTexts from "./SubTexts";
-import RoundedRectangle from "./RoundedRectangle";
 
 const Landing = () => {
   return (
-    <div className="flex flex-col sm:min-h-[85vh] items-center gap-0">
+    <div className="flex flex-col gap-8 p-10 sm:px-48 pt-28">
       <MainText />
       <SubTexts />
-      <RoundedRectangle />
     </div>
   );
 };

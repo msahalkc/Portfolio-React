@@ -1,10 +1,6 @@
-// App.jsx
-// import './App.css'
 import "./index.css";
-import './fonts/Fonts.css';
-import { DarkMode } from "./components/DarkMode/DarkMode";
 
-import Landing from './components/Landing'
+import Landing from "./components/Landing";
 import Works from "./components/Works";
 import Experience from "./components/Experience";
 import About from "./components/About";
@@ -14,13 +10,13 @@ import Blog from "./components/Blog";
 const App = () => {
   return (
     <div>
-        <Landing />
-        <Works />
-        <Experience />
-        <Blog />
-        <About />
-        <Contact />
-      </div>
+      <Landing />
+      <Works />
+      <Experience />
+      <Blog />
+      <About />
+      <Contact />
+    </div>
   );
 };
 

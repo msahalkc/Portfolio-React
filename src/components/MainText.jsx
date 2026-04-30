@@ -1,35 +1,67 @@
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
-const container = {
-  hidden: { opacity: 0 },
-  show: {
-    opacity: 1,
-    transition: { staggerChildren: 0.18, delayChildren: 0.1 },
-  },
-};
+const ROLES = [
+  "Software Developer",
+  "UI/UX Designer",
+  "Full Stack Engineer",
+  "Graphic Designer",
+];
 
-const item = {
-  hidden: { opacity: 0, y: 28 },
-  show: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.9, ease: [0.25, 0.1, 0.25, 1] },
-  },
+const TYPE_SPEED = 75;
+const DELETE_SPEED = 40;
+const HOLD_MS = 1400;
+
+const useTypingCycle = (words) => {
+  const [text, setText] = useState("");
+  const [wordIndex, setWordIndex] = useState(0);
+  const [phase, setPhase] = useState("type");
+
+  useEffect(() => {
+    const current = words[wordIndex];
+    let timeout;
+    if (phase === "type") {
+      if (text.length < current.length) {
+        timeout = setTimeout(
+          () => setText(current.slice(0, text.length + 1)),
+          TYPE_SPEED
+        );
+      } else {
+        timeout = setTimeout(() => setPhase("delete"), HOLD_MS);
+      }
+    } else if (phase === "delete") {
+      if (text.length > 0) {
+        timeout = setTimeout(
+          () => setText(current.slice(0, text.length - 1)),
+          DELETE_SPEED
+        );
+      } else {
+        setWordIndex((i) => (i + 1) % words.length);
+        setPhase("type");
+      }
+    }
+    return () => clearTimeout(timeout);
+  }, [text, phase, wordIndex, words]);
+
+  return text;
 };
 
 const MainText = () => {
+  const typed = useTypingCycle(ROLES);
+
   return (
-    <motion.div variants={container} initial="hidden" animate="show">
-      <motion.p variants={item} className="text-lg sm:text-xl italic font-display">
-        Hi, I am a
-      </motion.p>
-      <motion.h1
-        variants={item}
-        className="font-display font-light text-5xl sm:text-7xl md:text-8xl mt-3 leading-[0.95] tracking-tightest"
-      >
-        Software{" "}
-        <span className="italic font-medium">Developer</span>
-      </motion.h1>
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.9, ease: [0.25, 0.1, 0.25, 1] }}
+    >
+      <p className="text-lg sm:text-xl italic font-display">Hi, I am a</p>
+      <h1 className="font-display font-light text-4xl sm:text-7xl md:text-8xl mt-3 leading-[0.95] tracking-tightest">
+        <span className="opacity-50">{"{"}</span>
+        <span className="italic font-medium">{typed}</span>
+        <span className="cursor-blink ml-1 -mr-1 font-thin">|</span>
+        <span className="opacity-50">{"}"}</span>
+      </h1>
     </motion.div>
   );
 };

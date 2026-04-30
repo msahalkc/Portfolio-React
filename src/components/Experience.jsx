@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import FadeIn from "./FadeIn";
+import SectionHeading from "./SectionHeading";
 
 const Experience = () => {
   const experiences = [
@@ -52,11 +52,7 @@ const Experience = () => {
 
   return (
     <div id="Experience" className="p-10 sm:px-48 pt-20">
-      <FadeIn>
-        <h2 className="font-display text-5xl sm:text-6xl tracking-tightest">
-          Experience
-        </h2>
-      </FadeIn>
+      <SectionHeading label="02 — Career">Experience</SectionHeading>
       <div className="flex flex-col gap-10 mt-10">
         {experiences.map((exp, index) => (
           <motion.article

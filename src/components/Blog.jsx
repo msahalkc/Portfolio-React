@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import FadeIn from "./FadeIn";
+import SectionHeading from "./SectionHeading";
 
 const Blog = () => {
   const blogPosts = [
@@ -15,11 +15,7 @@ const Blog = () => {
 
   return (
     <div id="Blog" className="p-10 sm:px-48 pt-20">
-      <FadeIn>
-        <h2 className="font-display text-5xl sm:text-6xl tracking-tightest">
-          Blog Posts
-        </h2>
-      </FadeIn>
+      <SectionHeading label="03 — Writing">Blog Posts</SectionHeading>
       <div className="flex flex-col gap-10 mt-10">
         {blogPosts.map((post, index) => (
           <motion.article

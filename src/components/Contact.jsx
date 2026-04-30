@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import FadeIn from "./FadeIn";
+import SectionHeading from "./SectionHeading";
 
 const Contact = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -40,11 +41,7 @@ const Contact = () => {
 
   return (
     <div className="p-10 sm:px-48 pt-20 pb-24" id="Contact">
-      <FadeIn>
-        <h2 className="font-display text-5xl sm:text-6xl tracking-tightest">
-          Contact Me
-        </h2>
-      </FadeIn>
+      <SectionHeading label="05 — Say Hi">Contact Me</SectionHeading>
       <div className="mt-10 flex flex-col sm:flex-row gap-12">
         <FadeIn className="sm:w-1/2 flex flex-col gap-5" delay={0.1}>
           <p className="font-display text-3xl sm:text-5xl leading-tight tracking-tightest">
